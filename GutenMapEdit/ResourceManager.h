@@ -19,7 +19,7 @@ class ResourceManager
 	
 public:
 	
-	sf::Texture getImage (std::string key);
+	sf::Texture getTexture (std::string key);
 	sf::Font getFont();
 	
 private:

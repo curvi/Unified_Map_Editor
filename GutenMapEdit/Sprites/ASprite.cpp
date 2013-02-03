@@ -12,28 +12,24 @@
 
 ASprite::ASprite()
 {
-	//Nur fürs Debugging gleich laden! Dann eigen funkt für be-/entladen
-	this->loadPicture();
-	this->setTexture(pictures);
-	this->setTextureRect(sf::IntRect(0, 0, 100, 48));
-	
-	//Standard Values
-	sampleTime = 0.5;
+/*	sampleTime = 0.5;
 	numberOfFrames = 1;
 	setPosition(200.f, 200.f);
 	
+	//setTextureRect(sf::IntRect(0,0,pictures.getSize().x/numberOfFrames,pictures.getSize().y));
+	
+*/	//Standard Values
 }
 
-ASprite::ASprite(sf::Texture pic)
+
+
+ASprite::ASprite(sf::Texture pic) : sf::Sprite(pic)
 {
 	//Nur fürs Debugging gleich laden! Dann eigen funkt für be-/entladen
 	pictures = pic;
-	this->setTexture(pictures);
-	
+
 	//Standard Values
-	sampleTime = 0.5;
 	numberOfFrames = 1;
-	
 }
 
 
@@ -50,25 +46,22 @@ void ASprite::move(float frameTime)
 
 void ASprite::animate(float gameLoopTime)
 {
+	if ( numberOfFrames == 1) return;
+	
 	animationTime += gameLoopTime;
 	if (animationTime > sampleTime)
 	{
 		animationTime = 0;
 		animationFrame++;
+		if (animationFrame >= numberOfFrames){ animationFrame = 0; }
+		
 		int dx = pictures.getSize().x / numberOfFrames;
-		if (animationFrame > numberOfFrames-1){ animationFrame = 0; }
-		setTextureRect(sf::IntRect(0+animationFrame*dx, 0,
-									 dx+animationFrame*dx, pictures.getSize().y ));
+		
+		setTextureRect(sf::IntRect(animationFrame*dx, 0,
+								   dx, pictures.getSize().y ));
 	}
 }
 
-
-
-
-void ASprite::loadPicture()
-{
-	pictures = ResourceManager::instance().getImage("player.png");
-}
 
 
 
@@ -84,4 +77,17 @@ bool ASprite::checkIfInSight(sf::Vector2<float> framePosition)
 		return true;
 	}
 }
+					   
+					   
+					   
+
+
+
+
+
+
+
+
+					   
+					   
 

@@ -14,12 +14,13 @@
 #include <list>
 #include <SFML/Graphics.hpp>
 #include "Sprites/ASprite.h"
+#include "Sprites/Button.h"
 #include <string>
 #include <sstream>
 #include "ResourcePath.hpp"
 #include "ResourceManager.h"
 #include <iostream>
-
+#include "Input.h"
 
 class Engine
 {
@@ -40,10 +41,17 @@ private:
 	
 	sf::Clock clock;
 	float frameTime;
-	sf::Vector2f framePosition; // == Vector2<float>
+	sf::Vector2f framePosition;
+	
+	int xOffset, yOffset;
+	bool firstClick;
  	
 	float timesave = 0, fpsSave = 0;
 	int counter = 0;
+	
+	//Menu
+	Button AddButton;
+	ASprite* selectedSprite;
 	
 	
 	

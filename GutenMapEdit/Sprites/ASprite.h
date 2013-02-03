@@ -10,7 +10,7 @@
 #define Proto_ASprite_h
 
 #include <SFML/Graphics.hpp>
-
+#include "ResourceManager.h"
 
 
 class ASprite : public sf::Sprite
@@ -25,15 +25,15 @@ public:
 	sf::Vector2i Speed;
 	virtual void move(float frameTime);
 	
-	virtual void animate(float frameTime);
-	void loadPicture();
+	virtual void update(float frameTime){animate(frameTime); return;}
 	
 	bool checkIfInSight(sf::Vector2<float> framePosition);
-	//void killSprite();
     
     
 protected:
-    
+	
+    virtual void animate(float frameTime);
+	
 	//bool lifeStatus;
 	
 	//Animation

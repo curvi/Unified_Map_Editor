@@ -19,11 +19,11 @@ bool ResourceManager::loadTexture(std::string path)
   		return false;
 	}
 	pictureMap[path] = pic;
-	printf("res %li",pictureMap.size());
+	//printf("resources %li",pictureMap.size());
 	return true;
 }
 
-sf::Texture ResourceManager::getImage(std::string key)
+sf::Texture ResourceManager::getTexture(std::string key)
 {
 	if (pictureMap.find(key) == pictureMap.end())
 	{
@@ -42,7 +42,6 @@ sf::Font ResourceManager::getFont()
 		std::cout<< "couldn't load font."<<std::endl;
 		//return sf::Font::getDefaultFont();
 	}
-	printf("loaded Font\n");
 	return font;
 }
 

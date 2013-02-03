@@ -7,15 +7,30 @@
 //
 
 #include "Player.h"
+#include "Input.h"
 
 
-Player::Player()
+Player::Player() : ASprite()
 {
-    //sf::Image Image1(200, 200, sf::Color(0, 255, 0));
-    //SetImage(Image1);
-    
-	
 	numberOfFrames = 4;
-	sampleTime = 0.2;
+	sampleTime = 150;
+	
+	sf::Texture pic = ResourceManager::instance().getTexture("player.png");
+	pictures = pic;
+
+	this->setTexture(pictures, true);
+	setTextureRect(sf::IntRect(0,0,pic.getSize().x / numberOfFrames,pictures.getSize().y));
+
 }
 
+Player::Player(sf::Texture pic) : ASprite(pic)
+{
+	Player();
+}
+
+
+void Player::update(float frameTime)
+{
+	animate(frameTime);
+	
+}

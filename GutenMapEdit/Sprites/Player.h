@@ -19,12 +19,12 @@ public:
     
     std::string getClass(){return "Player";}
     Player();
-    
+    Player(sf::Texture pic);
+	void update(float frameTime);
     
 private:
 	
 		
-	
 };
 
 
