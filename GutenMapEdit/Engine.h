@@ -44,6 +44,7 @@ private:
 	sf::Vector2f framePosition;
 	
 	int xOffset, yOffset;
+	float rotationOffset;
 	bool firstClick;
  	
 	float timesave = 0, fpsSave = 0;

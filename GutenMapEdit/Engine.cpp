@@ -11,6 +11,8 @@
 
 #include "Sprites/Player.h"
 #include "Sprites/Button.h"
+#include <cmath>
+
 
 void Engine::updateSprites(sf::RenderWindow &window)
 {
@@ -29,6 +31,7 @@ void Engine::updateSprites(sf::RenderWindow &window)
 	{
 		printf("Clicked without space, first = false\n");
 		firstClick = false;
+		rotationOffset = 400;
 		if(Input::instance().heldDown(sf::Keyboard::Space))
 			selectedSprite = nullptr;
 	}
@@ -54,6 +57,7 @@ void Engine::updateSprites(sf::RenderWindow &window)
 				yOffset = border.top - Input::instance().getMousePosition().y;
 				
 				selectedSprite = (*it);
+				//selectedSprite->setOrigin(border.width/2, border.height/2);
 			}
 		}
 		
@@ -91,7 +95,36 @@ void Engine::updateSprites(sf::RenderWindow &window)
 		}
 		else
 		{
-			//TRANSFORM
+			
+			//Scale
+			float distanceX = selectedSprite->getPosition().x - Input::instance().getMousePosition().x;
+			float distanceY = selectedSprite->getPosition().y - Input::instance().getMousePosition().y;
+				
+			//Rotate
+			bool clockwise;
+			
+			double dist = distanceX*distanceX + distanceY*distanceY;
+			dist = sqrt(dist);
+			double ankathete = Input::instance().getMousePosition().x - selectedSprite->getPosition().x;
+
+			double angle = acos(ankathete/dist);
+			angle *= 180 / 3.141592736;
+			
+			//Rotation Direction Check
+			if(Input::instance().getMousePosition().y < selectedSprite->getPosition().y) clockwise = true;	
+			if(clockwise) angle *= -1;
+			
+			std::cout << angle << std::endl;
+			std::cout << "offset: "<< rotationOffset << std::endl;
+			
+			if(rotationOffset != 400)
+			{
+				selectedSprite->setRotation(angle + rotationOffset);
+			}
+			else
+			{
+				rotationOffset = selectedSprite->getRotation() - angle;
+			}
 		}
 	}
 
@@ -106,10 +139,22 @@ void Engine::updateSprites(sf::RenderWindow &window)
 void Engine::updateMenu(sf::RenderWindow &window)
 {
 	//Deactivate Buttons
-	if(Input::instance().pressed(sf::Mouse::Left, true)
-	   && Input::instance().getMousePosition().x < 990)
+	if((Input::instance().pressed(sf::Mouse::Left, true))
+	   &&(Input::instance().getMousePosition().x < 900) )
 	{
 		AddButton.buttonStatus = false;
+	}
+	
+	if(Input::instance().pressed(sf::Mouse::Left, true))
+	{
+		sf::Rect<float> border = AddButton.getGlobalBounds();
+		if( border.contains(
+							Input::instance().getMousePosition().x ,
+							Input::instance().getMousePosition().y ) )
+		{
+			std::cout << "Button noticed Click" <<std::endl;
+			AddButton.buttonStatus = true;
+		}
 	}
 	
 	AddButton.update(frameTime);
