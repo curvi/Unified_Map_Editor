@@ -95,11 +95,17 @@ void Engine::updateSprites(sf::RenderWindow &window)
 		}
 		else
 		{
-			
-			//Scale
+			//Transform
 			float distanceX = selectedSprite->getPosition().x - Input::instance().getMousePosition().x;
 			float distanceY = selectedSprite->getPosition().y - Input::instance().getMousePosition().y;
 				
+			//Scale
+			float x = abs(distanceX);
+			float y = abs(distanceY);
+			
+			selectedSprite->setScale(x/100 , y/100);
+
+			
 			//Rotate
 			bool clockwise;
 			
@@ -117,14 +123,8 @@ void Engine::updateSprites(sf::RenderWindow &window)
 			std::cout << angle << std::endl;
 			std::cout << "offset: "<< rotationOffset << std::endl;
 			
-			if(rotationOffset != 400)
-			{
-				selectedSprite->setRotation(angle + rotationOffset);
-			}
-			else
-			{
-				rotationOffset = selectedSprite->getRotation() - angle;
-			}
+			if (rotationOffset != 400){selectedSprite->setRotation(angle + rotationOffset);}
+			else {rotationOffset = selectedSprite->getRotation() - angle;}
 		}
 	}
 
