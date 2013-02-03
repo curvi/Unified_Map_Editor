@@ -49,9 +49,7 @@ void Engine::updateSprites(sf::RenderWindow &window)
 			if( border.contains(Input::instance().getMousePosition().x + framePosition.x ,
 								Input::instance().getMousePosition().y + framePosition.y) )
 			{
-				std::cout << "Click on "<< ((**it)).getClass() <<std::endl;
 				firstClick = true;
-				std::cout << "first = true " << std::endl;
 				
 				xOffset = border.left - Input::instance().getMousePosition().x;
 				yOffset = border.top - Input::instance().getMousePosition().y;
@@ -86,7 +84,8 @@ void Engine::updateSprites(sf::RenderWindow &window)
 	}
 	
 	if(selectedSprite != 0 &&
-	   Input::instance().heldDown(sf::Mouse::Left, true))
+	   Input::instance().heldDown(sf::Mouse::Left, true) &&
+	   Input::instance().getMousePosition().x < 995)
 	{
 		if(firstClick)
 		{
@@ -98,33 +97,30 @@ void Engine::updateSprites(sf::RenderWindow &window)
 			//Transform
 			float distanceX = selectedSprite->getPosition().x - Input::instance().getMousePosition().x;
 			float distanceY = selectedSprite->getPosition().y - Input::instance().getMousePosition().y;
+			
+			if(ScaleButton.buttonStatus)
+			{
+				float x = abs(distanceX);
+				float y = abs(distanceY);
 				
-			//Scale
-			float x = abs(distanceX);
-			float y = abs(distanceY);
+				selectedSprite->setScale(x/100 , y/100);
+			}
 			
-			selectedSprite->setScale(x/100 , y/100);
-
-			
-			//Rotate
-			bool clockwise;
-			
-			double dist = distanceX*distanceX + distanceY*distanceY;
-			dist = sqrt(dist);
-			double ankathete = Input::instance().getMousePosition().x - selectedSprite->getPosition().x;
-
-			double angle = acos(ankathete/dist);
-			angle *= 180 / 3.141592736;
-			
-			//Rotation Direction Check
-			if(Input::instance().getMousePosition().y < selectedSprite->getPosition().y) clockwise = true;	
-			if(clockwise) angle *= -1;
-			
-			std::cout << angle << std::endl;
-			std::cout << "offset: "<< rotationOffset << std::endl;
-			
-			if (rotationOffset != 400){selectedSprite->setRotation(angle + rotationOffset);}
-			else {rotationOffset = selectedSprite->getRotation() - angle;}
+			if(RotateButton.buttonStatus)
+			{
+				double dist = distanceX*distanceX + distanceY*distanceY;
+				dist = sqrt(dist);
+				double ankathete = Input::instance().getMousePosition().x - selectedSprite->getPosition().x;
+				
+				double angle = acos(ankathete/dist);
+				angle *= 180 / 3.141592736;
+				
+				if(Input::instance().getMousePosition().y < selectedSprite->getPosition().y)
+					angle *= -1;
+				
+				if (rotationOffset != 400){selectedSprite->setRotation(angle + rotationOffset);}
+				else {rotationOffset = selectedSprite->getRotation() - angle;}
+			}
 		}
 	}
 
@@ -140,26 +136,20 @@ void Engine::updateMenu(sf::RenderWindow &window)
 {
 	//Deactivate Buttons
 	if((Input::instance().pressed(sf::Mouse::Left, true))
-	   &&(Input::instance().getMousePosition().x < 900) )
+	   &&(Input::instance().getMousePosition().x < 995) )
 	{
 		AddButton.buttonStatus = false;
 	}
-	
-	if(Input::instance().pressed(sf::Mouse::Left, true))
+	if(Input::instance().pressed(sf::Keyboard::Return))
 	{
-		sf::Rect<float> border = AddButton.getGlobalBounds();
-		if( border.contains(
-							Input::instance().getMousePosition().x ,
-							Input::instance().getMousePosition().y ) )
-		{
-			std::cout << "Button noticed Click" <<std::endl;
-			AddButton.buttonStatus = true;
-		}
+		ScaleButton.buttonStatus = false;
+		RotateButton.buttonStatus = false;
 	}
-	
+		
 	AddButton.update(frameTime);
-	
-	
+	RotateButton.update(frameTime);
+	ScaleButton.update(frameTime);
+		
 	std::list<ASprite*>::iterator it2;
 	for (it2 = listOfMenuItems.begin(); it2 != listOfMenuItems.end(); ++it2)
 	{
@@ -169,9 +159,8 @@ void Engine::updateMenu(sf::RenderWindow &window)
 		if(Input::instance().pressed(sf::Mouse::Left, true))
 		{
 			sf::Rect<float> border = ((**it2)).getGlobalBounds();
-			if( border.contains(
-						Input::instance().getMousePosition().x ,
-						Input::instance().getMousePosition().y ) )
+			if( border.contains(Input::instance().getMousePosition().x ,
+								Input::instance().getMousePosition().y ) )
 			{
 				std::cout << "Clicked Class: " << ((**it2)).getClass() <<std::endl;
 
@@ -185,12 +174,14 @@ void Engine::updateMenu(sf::RenderWindow &window)
 						this->includeSprite(copy);
 					}
 				}
-			}// if clicked ON! ^
+			}
 		}
 	}
 	
 	window.draw(AddButton);
-	
+	window.draw(RotateButton);
+	window.draw(ScaleButton);
+
 	return;
 	
 }//Menu
@@ -217,13 +208,26 @@ void Engine::loadMenu()
 	listOfMenuItems.push_back(MenuBackground);
 	
 
-	//std::string path = ;
-	Button * but= new Button("addbutton.png");
-	but->setPosition(1000, 15);
+	Button * but = new Button("addbutton.png");
+	but->setPosition(1020, 15);
 	AddButton = * but;
+
+/*	Button * abut = new Button("delbutton.png");
+	but->setPosition(1080, 15);
+	delButton = * abut;
+*/	
+	Button * abut = new Button("rotatebutton.png");
+	abut->setPosition(1070, 65);
+	RotateButton = * abut;
+	
+	Button * bbut = new Button("scalebutton.png");
+	bbut->setPosition(1020, 65);
+	ScaleButton = * bbut;
+	
+	
 	
 	Player* play = new Player();
-	play->setPosition(995, 85);
+	play->setPosition(1020, 185);
 	play->setScale(0.5, 0.5);
 	listOfMenuItems.push_back(play);
 	

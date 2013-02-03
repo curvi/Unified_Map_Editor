@@ -51,7 +51,7 @@ private:
 	int counter = 0;
 	
 	//Menu
-	Button AddButton;
+	Button AddButton, RotateButton, ScaleButton;
 	ASprite* selectedSprite;
 	
 	

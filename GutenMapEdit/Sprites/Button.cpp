@@ -45,6 +45,18 @@ void Button::update(float frameTime)
 {
 	animate(frameTime);
 	
+	
+	if(Input::instance().pressed(sf::Mouse::Left, true))
+	{
+		sf::Rect<float> border = getGlobalBounds();
+		if( border.contains(Input::instance().getMousePosition().x ,
+							Input::instance().getMousePosition().y ) )
+		{
+			std::cout << "Button noticed Click" <<std::endl;
+			buttonStatus = true;
+		}
+	}
+	
 }
 
 
