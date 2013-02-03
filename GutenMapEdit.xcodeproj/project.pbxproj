@@ -11,12 +11,6 @@
 		271EA84A16B41DA40037D55E /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 271EA84916B41DA40037D55E /* main.cpp */; };
 		2726995316B5534900FE9565 /* Input.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2726995116B5534900FE9565 /* Input.cpp */; };
 		2777CE6716B8167C0009330F /* Button.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2777CE6516B8167C0009330F /* Button.cpp */; };
-		2777CE7216B819350009330F /* addbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 2777CE6C16B819350009330F /* addbutton.png */; };
-		2777CE7316B819350009330F /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2777CE6D16B819350009330F /* icon.png */; };
-		2777CE7416B819350009330F /* nice_music.ogg in Resources */ = {isa = PBXBuildFile; fileRef = 2777CE6E16B819350009330F /* nice_music.ogg */; };
-		2777CE7516B819350009330F /* player.png in Resources */ = {isa = PBXBuildFile; fileRef = 2777CE6F16B819350009330F /* player.png */; };
-		2777CE7616B819350009330F /* sansation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2777CE7016B819350009330F /* sansation.ttf */; };
-		2777CE7716B819350009330F /* test.png in Resources */ = {isa = PBXBuildFile; fileRef = 2777CE7116B819350009330F /* test.png */; };
 		279E476D16B433B600134E5E /* Engine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 279E476516B433B600134E5E /* Engine.cpp */; };
 		279E476F16B433B600134E5E /* ResourceManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 279E476816B433B600134E5E /* ResourceManager.cpp */; };
 		279E477A16B437A400134E5E /* Level.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 279E477816B437A400134E5E /* Level.cpp */; };
@@ -34,12 +28,6 @@
 		2726995216B5534900FE9565 /* Input.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Input.h; sourceTree = "<group>"; };
 		2777CE6516B8167C0009330F /* Button.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Button.cpp; path = GutenMapEdit/Sprites/Button.cpp; sourceTree = "<group>"; };
 		2777CE6616B8167C0009330F /* Button.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Button.h; path = GutenMapEdit/Sprites/Button.h; sourceTree = "<group>"; };
-		2777CE6C16B819350009330F /* addbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = addbutton.png; sourceTree = "<group>"; };
-		2777CE6D16B819350009330F /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
-		2777CE6E16B819350009330F /* nice_music.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; path = nice_music.ogg; sourceTree = "<group>"; };
-		2777CE6F16B819350009330F /* player.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player.png; sourceTree = "<group>"; };
-		2777CE7016B819350009330F /* sansation.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sansation.ttf; sourceTree = "<group>"; };
-		2777CE7116B819350009330F /* test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test.png; sourceTree = "<group>"; };
 		279E476316B433B600134E5E /* Collision.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Collision.cpp; sourceTree = "<group>"; };
 		279E476416B433B600134E5E /* Collision.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Collision.h; sourceTree = "<group>"; };
 		279E476516B433B600134E5E /* Engine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Engine.cpp; sourceTree = "<group>"; };
@@ -52,6 +40,15 @@
 		279E477E16B437D800134E5E /* ASprite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ASprite.h; path = GutenMapEdit/Sprites/ASprite.h; sourceTree = "<group>"; };
 		279E477F16B437D800134E5E /* Player.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Player.cpp; path = GutenMapEdit/Sprites/Player.cpp; sourceTree = "<group>"; };
 		279E478016B437D800134E5E /* Player.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Player.h; path = GutenMapEdit/Sprites/Player.h; sourceTree = "<group>"; };
+		27E3CFD016BEF7BB00098271 /* addbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = addbutton.png; sourceTree = "<group>"; };
+		27E3CFD116BEF7BB00098271 /* button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button.png; sourceTree = "<group>"; };
+		27E3CFD216BEF7BB00098271 /* delbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delbutton.png; sourceTree = "<group>"; };
+		27E3CFD316BEF7BB00098271 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		27E3CFD416BEF7BB00098271 /* nice_music.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; path = nice_music.ogg; sourceTree = "<group>"; };
+		27E3CFD516BEF7BB00098271 /* player.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player.png; sourceTree = "<group>"; };
+		27E3CFD616BEF7BB00098271 /* rotatebutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rotatebutton.png; sourceTree = "<group>"; };
+		27E3CFD716BEF7BB00098271 /* sansation.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sansation.ttf; sourceTree = "<group>"; };
+		27E3CFD816BEF7BB00098271 /* scalebutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scalebutton.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,12 +111,15 @@
 		2777CE6B16B819350009330F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				2777CE6C16B819350009330F /* addbutton.png */,
-				2777CE6D16B819350009330F /* icon.png */,
-				2777CE6E16B819350009330F /* nice_music.ogg */,
-				2777CE6F16B819350009330F /* player.png */,
-				2777CE7016B819350009330F /* sansation.ttf */,
-				2777CE7116B819350009330F /* test.png */,
+				27E3CFD016BEF7BB00098271 /* addbutton.png */,
+				27E3CFD216BEF7BB00098271 /* delbutton.png */,
+				27E3CFD816BEF7BB00098271 /* scalebutton.png */,
+				27E3CFD616BEF7BB00098271 /* rotatebutton.png */,
+				27E3CFD116BEF7BB00098271 /* button.png */,
+				27E3CFD316BEF7BB00098271 /* icon.png */,
+				27E3CFD416BEF7BB00098271 /* nice_music.ogg */,
+				27E3CFD516BEF7BB00098271 /* player.png */,
+				27E3CFD716BEF7BB00098271 /* sansation.ttf */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -200,12 +200,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2777CE7216B819350009330F /* addbutton.png in Resources */,
-				2777CE7316B819350009330F /* icon.png in Resources */,
-				2777CE7416B819350009330F /* nice_music.ogg in Resources */,
-				2777CE7516B819350009330F /* player.png in Resources */,
-				2777CE7616B819350009330F /* sansation.ttf in Resources */,
-				2777CE7716B819350009330F /* test.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
