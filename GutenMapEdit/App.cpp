@@ -38,7 +38,7 @@ App::App()
 */
 	
 	menu.registerSpriteMan(&spritey);
-	
+	spritey.registerMenu(&menu);
 }
 
 

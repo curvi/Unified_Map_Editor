@@ -6,6 +6,9 @@
 //
 //
 
+//TODO: Input, Draw trennen
+//TODO: Transform und Move als eigene Funktion  void move(ASprite);
+
 
 #include "Spriteman.h"
 
@@ -30,7 +33,8 @@ void Spriteman::updateSprites(sf::RenderWindow &window)
 	frameTime = timeElapsed.asMilliseconds();
 	
 	
-	//TODO: Frame Position wg Sprite wählen
+	//TODO: View Manager Position fragen
+	// wg Sprite wählen
 	//Vom View Manager hierher übergeben oda so
 	
 	framePosition = window.getView().getCenter()
@@ -64,8 +68,10 @@ void Spriteman::updateSprites(sf::RenderWindow &window)
 			{
 				firstClick = true;
 				
-				xOffset = border.left - Input::instance().getMousePosition().x;
-				yOffset = border.top - Input::instance().getMousePosition().y;
+				xOffset = ((**it)).getPosition().x + ((**it)).getOrigin().x
+									- Input::instance().getMousePosition().x;
+				yOffset = ((**it)).getPosition().y + ((**it)).getOrigin().y
+									- Input::instance().getMousePosition().y;
 				
 				selectedSprite = (*it);
 				//selectedSprite->setOrigin(border.width/2, border.height/2);
@@ -148,7 +154,7 @@ void Spriteman::includeSprite(ASprite* figure)
 	return;
 }
 
-
+//TODO: Auslagern von FPS
 
 std::string Spriteman::printfps()
 {

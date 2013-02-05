@@ -29,6 +29,7 @@
 Menu::Menu()
 {
 	/*
+	//TODO: Menu Background
 	sf::Image img;
 	img.create(200, 890, sf::Color(150,150,150));
 	img.createMaskFromColor(sf::Color(200,200,200),100);
@@ -101,14 +102,14 @@ void Menu::update(sf::RenderWindow &window)
 	{
 		window.draw((**it));
 		
+		std::string itemName = ((**it)).getString();
+		
 		if(Input::instance().pressed(sf::Mouse::Left, true))
 		{
 			sf::Rect<float> border = ((**it)).getGlobalBounds();
 			if( border.contains(Input::instance().getMousePosition().x ,
 								Input::instance().getMousePosition().y ) )
 			{
-				std::string itemName = ((**it)).getString();
-				((**it)).setColor(sf::Color::Green);
 				std::cout << "Clicked Menu Item: " << itemName <<std::endl;
 				
 				if(itemName == "Add")
@@ -118,23 +119,50 @@ void Menu::update(sf::RenderWindow &window)
 				else if (itemName == "Rotate")
 					rotate = true;
 				else
-				((**it)).setColor(sf::Color::White);
-				
-				if(add && itemName == "Player")
 				{
-					std::cout <<"Player"<<std::endl;
-					ASprite * copy = new Player();
-					copy->setPosition(450, 300);
-					spriteman->includeSprite(copy);
+					if(add && itemName == "Player")
+					{
+						std::cout <<"Player"<<std::endl;
+						ASprite * copy = new Player();
+						copy->setPosition(450, 300);
+						spriteman->includeSprite(copy);
+					}
+					add = false;
+					rotate = false;
+					scale = false;
 				}
-				
-			}
+		
+			}//hit
 		}
-	}
+		if (itemName == "Add")
+		{
+			if (add)
+				((**it)).setColor(sf::Color::Green);
+			else
+				((**it)).setColor(sf::Color::White);
+		}
+		if (itemName == "Rotate")
+		{
+			if (rotate)
+				((**it)).setColor(sf::Color::Green);
+			else
+				((**it)).setColor(sf::Color::White);
+		}
+		if (itemName == "Scale")
+		{
+			if (scale)
+				((**it)).setColor(sf::Color::Green);
+			else
+				((**it)).setColor(sf::Color::White);
+		}
+			
+	
+	} // for all ^
+	
 	
 	return;
 	
-}//Menu
+}//update
 
 
 

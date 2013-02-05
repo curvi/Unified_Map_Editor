@@ -18,7 +18,7 @@
 #include "Spriteman.h"
 #include "Sprites/Player.h"
 
-
+class Spriteman;
 
 class Menu
 {

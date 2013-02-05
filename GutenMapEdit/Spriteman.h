@@ -22,7 +22,7 @@
 #include "Sprites/ASprite.h"
 #include "Menu.h"
 
-
+class Menu;
 
 class Spriteman
 {
