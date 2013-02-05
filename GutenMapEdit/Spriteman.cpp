@@ -1,5 +1,5 @@
 //
-//  Engine.cpp
+//  Spriteman.cpp
 //  Protos
 //
 //  Created by Michael Schwegel on 03.01.13
@@ -7,14 +7,20 @@
 //
 
 
-#include "Engine.h"
+#include "Spriteman.h"
 
 #include "Sprites/Player.h"
 #include "Sprites/Button.h"
 #include <cmath>
 
 
-void Engine::updateSprites(sf::RenderWindow &window)
+Spriteman::Spriteman ()
+{
+	timesave = fpsSave = counter = 0;
+
+}
+
+void Spriteman::updateSprites(sf::RenderWindow &window)
 {
 	sf::Time timeElapsed = clock.restart();
 	frameTime = timeElapsed.asMilliseconds();
@@ -29,7 +35,7 @@ void Engine::updateSprites(sf::RenderWindow &window)
 	
 	if(Input::instance().pressed(sf::Mouse::Left, true))
 	{
-		printf("Clicked without space, first = false\n");
+		//printf("Clicked without space, first = false\n");
 		firstClick = false;
 		rotationOffset = 400;
 		if(Input::instance().heldDown(sf::Keyboard::Space))
@@ -79,7 +85,7 @@ void Engine::updateSprites(sf::RenderWindow &window)
 	if(Input::instance().released(sf::Mouse::Left, true) &&
 	   !firstClick)
 	{
-		selectedSprite = nullptr;
+		//selectedSprite = nullptr;
 		printf("set nullptr\n");
 	}
 	
@@ -123,122 +129,21 @@ void Engine::updateSprites(sf::RenderWindow &window)
 			}
 		}
 	}
-
-	
-	
 } //UpdateSprites ^
 
 
 
 
 
-void Engine::updateMenu(sf::RenderWindow &window)
-{
-	//Deactivate Buttons
-	if((Input::instance().pressed(sf::Mouse::Left, true))
-	   &&(Input::instance().getMousePosition().x < 995) )
-	{
-		AddButton.buttonStatus = false;
-	}
-	if(Input::instance().pressed(sf::Keyboard::Return))
-	{
-		ScaleButton.buttonStatus = false;
-		RotateButton.buttonStatus = false;
-	}
-		
-	AddButton.update(frameTime);
-	RotateButton.update(frameTime);
-	ScaleButton.update(frameTime);
-		
-	std::list<ASprite*>::iterator it2;
-	for (it2 = listOfMenuItems.begin(); it2 != listOfMenuItems.end(); ++it2)
-	{
-		
-		((**it2)).update(frameTime);
-		window.draw((**it2));
-		if(Input::instance().pressed(sf::Mouse::Left, true))
-		{
-			sf::Rect<float> border = ((**it2)).getGlobalBounds();
-			if( border.contains(Input::instance().getMousePosition().x ,
-								Input::instance().getMousePosition().y ) )
-			{
-				std::cout << "Clicked Class: " << ((**it2)).getClass() <<std::endl;
-
-				if(AddButton.buttonStatus)
-				{
-					if( ((**it2)).getClass() == "Player")
-					{
-						std::cout <<"Player"<<std::endl;
-						ASprite * copy = new Player();
-						copy->setPosition(450, 300);
-						this->includeSprite(copy);
-					}
-				}
-			}
-		}
-	}
-	
-	window.draw(AddButton);
-	window.draw(RotateButton);
-	window.draw(ScaleButton);
-
-	return;
-	
-}//Menu
-
-
-
-
-
-void Engine::includeSprite(ASprite* figure)
+void Spriteman::includeSprite(ASprite* figure)
 {
 	listOfObjects.push_back(figure);
 	return;
 }
 
-void Engine::loadMenu()
-{
-	sf::Image img;
-	img.create(200, 890, sf::Color(150,150,150));
-	img.createMaskFromColor(sf::Color(200,200,200),100);
-	sf::Texture * tex = new sf::Texture;
-	tex->loadFromImage(img);
-	ASprite* MenuBackground = new ASprite(*tex);
-	MenuBackground->setPosition(995, 5);
-	listOfMenuItems.push_back(MenuBackground);
-	
-
-	Button * but = new Button("addbutton.png");
-	but->setPosition(1020, 15);
-	AddButton = * but;
-
-/*	Button * abut = new Button("delbutton.png");
-	but->setPosition(1080, 15);
-	delButton = * abut;
-*/	
-	Button * abut = new Button("rotatebutton.png");
-	abut->setPosition(1070, 65);
-	RotateButton = * abut;
-	
-	Button * bbut = new Button("scalebutton.png");
-	bbut->setPosition(1020, 65);
-	ScaleButton = * bbut;
-	
-	
-	
-	Player* play = new Player();
-	play->setPosition(1020, 185);
-	play->setScale(0.5, 0.5);
-	listOfMenuItems.push_back(play);
-	
-
-	return;
-}
 
 
-
-
-std::string Engine::printfps()
+std::string Spriteman::printfps()
 {
 	timesave += frameTime*10e-3;
 	
@@ -263,7 +168,7 @@ std::string Engine::printfps()
 }
 
 
-float Engine::getTime()
+float Spriteman::getTime()
 {
 	return frameTime;
 }

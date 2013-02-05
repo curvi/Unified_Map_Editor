@@ -38,8 +38,8 @@ protected:
 	
 	//Animation
 	sf::Texture pictures;
-	int animationFrame = 0, numberOfFrames;
-	float animationTime = 0, sampleTime;
+	int animationFrame, numberOfFrames;
+	float animationTime, sampleTime;
 	
 	
 };

@@ -11,7 +11,6 @@
 
 
 #include "ASprite.h"
-#include "Engine.h"
 #include "ResourceManager.h"
 
 

@@ -37,6 +37,8 @@ App::App()
     window.setIcon(icon.getSize().x, icon.getSize().y, icon.getPixelsPtr());
 */
 	
+	menu.registerSpriteMan(&spritey);
+	
 }
 
 
@@ -63,7 +65,7 @@ int App::run()
 		//window.setView(gameView);
 		spritey.updateSprites(window);
 
-		editorMenu.update(window);
+		menu.update(window);
 		
 		
 		window.display();

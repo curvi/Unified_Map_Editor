@@ -1,5 +1,5 @@
 /*
- *  Engine.h
+ *  Spriteman.h
  *  Proto
  *
  *  Created by Michael Schwegel on 03.01.13.
@@ -8,24 +8,28 @@
  */
 
 
-#ifndef _ENGINE_H
-#define _ENGINE_H 1
+#ifndef _Spriteman_H
+#define _Spriteman_H 1
 
 #include <list>
-#include <SFML/Graphics.hpp>
-#include "Sprites/ASprite.h"
-#include "Sprites/Button.h"
 #include <string>
 #include <sstream>
-#include "ResourcePath.hpp"
-#include "ResourceManager.h"
 #include <iostream>
-#include "Input.h"
 
-class Engine
+#include <SFML/Graphics.hpp>
+
+#include "Sprites/ASprite.h"
+#include "Sprites/Button.h"
+#include "ResourceManager.h"
+#include "Input.h"
+#include "ResourcePath.hpp"
+
+
+class Spriteman
 {
 public:
- 	
+	
+	Spriteman ();
 	float getTime();
 	void updateSprites(sf::RenderWindow &window);
 	void updateMenu(sf::RenderWindow &window);
@@ -37,8 +41,7 @@ public:
 private:
 	
 	std::list<ASprite*> listOfObjects;
-    std::list<ASprite*> listOfMenuItems;
-	
+    
 	sf::Clock clock;
 	float frameTime;
 	sf::Vector2f framePosition;
@@ -46,32 +49,15 @@ private:
 	int xOffset, yOffset;
 	float rotationOffset;
 	bool firstClick;
- 	
-	float timesave = 0, fpsSave = 0;
-	int counter = 0;
+
+	float timesave, fpsSave;
+	int counter;
 	
 	//Menu
 	Button AddButton, RotateButton, ScaleButton;
 	ASprite* selectedSprite;
 	
-	
-	
- 	/* Singleton */
-public:
-    static Engine& instance()
-    {
-        static Engine _instance;
-        return _instance;
-    }
-private:
-    Engine (){};
-	/* prohibition for copying a new instance */
-	
-    Engine ( const Engine& );
-    ~Engine () { };
-    
-    
-    
+ 
 };
 
 

@@ -19,6 +19,9 @@ ASprite::ASprite()
 	//setTextureRect(sf::IntRect(0,0,pictures.getSize().x/numberOfFrames,pictures.getSize().y));
 	
 */	//Standard Values
+	
+	animationFrame = numberOfFrames = animationTime = sampleTime = 0;
+
 }
 
 
