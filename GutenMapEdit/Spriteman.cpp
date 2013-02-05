@@ -17,13 +17,21 @@
 Spriteman::Spriteman ()
 {
 	timesave = fpsSave = counter = 0;
-
 }
+void Spriteman::registerMenu(Menu* menuptr)
+{
+	menu = menuptr;
+}
+
 
 void Spriteman::updateSprites(sf::RenderWindow &window)
 {
 	sf::Time timeElapsed = clock.restart();
 	frameTime = timeElapsed.asMilliseconds();
+	
+	
+	//TODO: Frame Position wg Sprite wählen
+	//Vom View Manager hierher übergeben oda so
 	
 	framePosition = window.getView().getCenter()
 					- sf::Vector2f(window.getSize().x / 2,
@@ -35,7 +43,6 @@ void Spriteman::updateSprites(sf::RenderWindow &window)
 	
 	if(Input::instance().pressed(sf::Mouse::Left, true))
 	{
-		//printf("Clicked without space, first = false\n");
 		firstClick = false;
 		rotationOffset = 400;
 		if(Input::instance().heldDown(sf::Keyboard::Space))
@@ -85,7 +92,7 @@ void Spriteman::updateSprites(sf::RenderWindow &window)
 	if(Input::instance().released(sf::Mouse::Left, true) &&
 	   !firstClick)
 	{
-		//selectedSprite = nullptr;
+		selectedSprite = nullptr;
 		printf("set nullptr\n");
 	}
 	
@@ -104,7 +111,7 @@ void Spriteman::updateSprites(sf::RenderWindow &window)
 			float distanceX = selectedSprite->getPosition().x - Input::instance().getMousePosition().x;
 			float distanceY = selectedSprite->getPosition().y - Input::instance().getMousePosition().y;
 			
-			if(ScaleButton.buttonStatus)
+			if(menu->scale)
 			{
 				float x = abs(distanceX);
 				float y = abs(distanceY);
@@ -112,7 +119,7 @@ void Spriteman::updateSprites(sf::RenderWindow &window)
 				selectedSprite->setScale(x/100 , y/100);
 			}
 			
-			if(RotateButton.buttonStatus)
+			if(menu->rotate)
 			{
 				double dist = distanceX*distanceX + distanceY*distanceY;
 				dist = sqrt(dist);

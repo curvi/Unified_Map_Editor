@@ -27,15 +27,15 @@
 int main(int, char const**)
 {
 	
-	App* App = new App();
-	assert(NULL != App && "main() Can't create App");
+	App* app = new App();
+	assert(NULL != app && "main() Can't create App");
 	
 	
-	int exitCode = App->run();
+	int exitCode = app->run();
 	
 	
-	delete App;
-	App = NULL;
+	delete app;
+	app = NULL;
 	
     return exitCode;
 }

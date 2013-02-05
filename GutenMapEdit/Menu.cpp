@@ -117,9 +117,9 @@ void Menu::update(sf::RenderWindow &window)
 					scale = true;
 				else if (itemName == "Rotate")
 					rotate = true;
-			
-				
+				else
 				((**it)).setColor(sf::Color::White);
+				
 				if(add && itemName == "Player")
 				{
 					std::cout <<"Player"<<std::endl;

@@ -18,11 +18,10 @@
 
 #include <SFML/Graphics.hpp>
 
-#include "Sprites/ASprite.h"
-#include "Sprites/Button.h"
-#include "ResourceManager.h"
 #include "Input.h"
-#include "ResourcePath.hpp"
+#include "Sprites/ASprite.h"
+#include "Menu.h"
+
 
 
 class Spriteman
@@ -30,6 +29,8 @@ class Spriteman
 public:
 	
 	Spriteman ();
+	void registerMenu(Menu* menuptr);
+	
 	float getTime();
 	void updateSprites(sf::RenderWindow &window);
 	void updateMenu(sf::RenderWindow &window);
@@ -53,8 +54,7 @@ private:
 	float timesave, fpsSave;
 	int counter;
 	
-	//Menu
-	Button AddButton, RotateButton, ScaleButton;
+	Menu * menu;
 	ASprite* selectedSprite;
 	
  
