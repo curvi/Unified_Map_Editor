@@ -10,11 +10,11 @@
 
 #include <iostream>
 
-void Input::poll(sf::RenderWindow * window)
+void Input::poll(sf::RenderWindow & window)
 {
 	// Process events
 	sf::Event event;
-	while (window->pollEvent(event))
+	while (window.pollEvent(event))
 	{
 		// Espace pressed, close Window, Super+Q : exit
 		if (event.type == sf::Event::Closed ||
@@ -22,7 +22,7 @@ void Input::poll(sf::RenderWindow * window)
 			 ((event.key.code == sf::Keyboard::Escape)
 			  || (sf::Keyboard::isKeyPressed(sf::Keyboard::LSystem)
 				  && event.key.code == sf::Keyboard::Q) ) ) )
-		{ window->close(); }
+		{ window.close(); }
 		
 		update(event);
 		

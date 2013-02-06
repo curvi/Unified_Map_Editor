@@ -37,10 +37,10 @@ sf::Texture ResourceManager::getTexture(std::string key)
 
 sf::Font ResourceManager::getFont()
 {
+	sf::Font font;
     if (!font.loadFromFile(resourcePath() + "sansation.ttf"))
 	{
 		std::cout<< "couldn't load font."<<std::endl;
-		//return sf::Font::getDefaultFont();
 	}
 	return font;
 }

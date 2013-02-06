@@ -28,7 +28,8 @@ public:
 	Menu();
 	void registerSpriteMan(Spriteman * spritey);
 	
-	void update(sf::RenderWindow &window);
+	bool update();
+	void draw(sf::RenderWindow &window);
 
 	bool add, rotate, remove, scale;
 

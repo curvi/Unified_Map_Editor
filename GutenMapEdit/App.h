@@ -18,6 +18,7 @@
 #include "Input.h"
 #include "Spriteman.h"
 #include "Menu.h"
+#include "Viewmanager.h"
 
 
 class App
@@ -30,8 +31,10 @@ public:
 	
 	int run();
 	
+	Viewmanager viewman;
 	Spriteman spritey;
 	Menu menu;
+
 	
 private:
 	

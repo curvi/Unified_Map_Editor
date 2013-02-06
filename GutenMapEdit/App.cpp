@@ -7,7 +7,7 @@
 //
 
 #pragma mark -
-// TODO:
+// TODO: Hide Menu -> Editor Mode / Game Mode
 // TODO: 
 #pragma mark -
 
@@ -39,6 +39,7 @@ App::App()
 	
 	menu.registerSpriteMan(&spritey);
 	spritey.registerMenu(&menu);
+	viewman.registerWindow(window);
 }
 
 
@@ -56,16 +57,22 @@ int App::run()
     while (window.isOpen())
     {
 		
-		Input::instance().poll(&window);
+		Input::instance().poll(window);
         	
 		window.clear();
 		
+		//Input Queue
+		if (!viewman.setGameView(window))
+		{	if(!menu.update())
+			{	spritey.editSprites(window); }}
 		
-		//!!!: Richtigen View davor setzten!
-		//window.setView(gameView);
+		
+				
 		spritey.updateSprites(window);
 
-		menu.update(window);
+		
+		window.setView(window.getDefaultView());
+		menu.draw(window);
 		
 		
 		window.display();

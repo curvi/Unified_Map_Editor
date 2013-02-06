@@ -20,7 +20,7 @@ class Input
 
 public:
 	
-	void poll(sf::RenderWindow * window);
+	void poll(sf::RenderWindow & window);
 	
 	void update(sf::Event event);
 	bool heldDown	(int value, bool mouse = false);

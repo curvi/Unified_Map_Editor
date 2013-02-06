@@ -33,7 +33,8 @@ public:
 	
 	float getTime();
 	void updateSprites(sf::RenderWindow &window);
-	void updateMenu(sf::RenderWindow &window);
+	bool editSprites(sf::RenderWindow &window);
+
 	std::string printfps();
     void includeSprite(ASprite* Figure);
 	void loadMenu();
@@ -41,21 +42,25 @@ public:
 	
 private:
 	
-	std::list<ASprite*> listOfObjects;
-    
+	std::list<ASprite*> listOfObjects;	
+	
+	void rotate(float x, float y);
+	void scale(float x, float y);
+	ASprite* selectedSprite;
+
 	sf::Clock clock;
 	float frameTime;
+	float timesave, fpsSave;
+	int counter;
 	sf::Vector2f framePosition;
-	
 	int xOffset, yOffset;
 	float rotationOffset;
 	bool firstClick;
 
-	float timesave, fpsSave;
-	int counter;
+	
 	
 	Menu * menu;
-	ASprite* selectedSprite;
+
 	
  
 };

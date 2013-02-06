@@ -27,7 +27,6 @@ private:
 	bool loadTexture(std::string path);
 	
 	std::map <std::string, sf::Texture> pictureMap;
-	sf::Font font;
 	
 	
  	/* Singleton */

@@ -20,8 +20,6 @@
 #include <assert.h>
 
 
-//TODO: Hide Menu
-//bool hidemenu = false;
 
 
 int main(int, char const**)
@@ -51,48 +49,6 @@ int main(int, char const**)
 */
 
 	
-
-
-/*
-	sf::View defaultView = window.getDefaultView();
-	sf::View gameView = window.getView();
-	window.setView(gameView);
-*/
-	
-
-		#pragma mark View Move
-		//View Moving
-/*		float time = Engine::instance().getTime();
-	
-		if(Input::instance().heldDown(sf::Keyboard::Right))	{gameView.move(0.7*time, 0);	}
-		if(Input::instance().heldDown(sf::Keyboard::Left))	{gameView.move(-0.7*time, 0);	}
-		if(Input::instance().heldDown(sf::Keyboard::Up))	{gameView.move(0, -0.7*time);	}
-		if(Input::instance().heldDown(sf::Keyboard::Down))	{gameView.move(0, 0.7*time);	}
-		
-		if(!Input::instance().heldDown(sf::Mouse::Left, true))
-		{
-			mousePos = Input::instance().getMousePosition();
-		}
-		if(Input::instance().heldDown(sf::Keyboard::Space) &&
-		   Input::instance().heldDown(sf::Mouse::Left, true))
-		{
-			sf::Vector2i distance = Input::instance().getMousePosition() - mousePos;
-			distance *= -1;
-			mousePos = Input::instance().getMousePosition();
-			gameView.move(distance.x, distance.y);
-		}
- 
- 
-*/		
-		/*
-	 	std::cout << "GameView:" << std::endl;
-		std::cout << "x: " << gameView.getCenter().x << std::endl;
-		std::cout << "y: " << gameView.getCenter().y << std::endl;
-		*/
-
-		
-
-
 
 
 

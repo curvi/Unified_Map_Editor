@@ -11,10 +11,8 @@
 
 
 #include "Spriteman.h"
-
-#include "Sprites/Player.h"
-#include "Sprites/Button.h"
 #include <cmath>
+
 
 
 Spriteman::Spriteman ()
@@ -27,20 +25,9 @@ void Spriteman::registerMenu(Menu* menuptr)
 }
 
 
-void Spriteman::updateSprites(sf::RenderWindow &window)
+bool Spriteman::editSprites(sf::RenderWindow &window)
 {
-	sf::Time timeElapsed = clock.restart();
-	frameTime = timeElapsed.asMilliseconds();
-	
-	
-	//TODO: View Manager Position fragen
-	// wg Sprite wählen
-	//Vom View Manager hierher übergeben oda so
-	
-	framePosition = window.getView().getCenter()
-					- sf::Vector2f(window.getSize().x / 2,
-								   window.getSize().y / 2);
-	
+	bool usedInput = false;
 	//DEBUGGING
 	//printf("Framepos: %.f, %.f", framePosition.x, framePosition.y);
 	//printf("Sprites %li \n",listOfObjects.size()); //Wie viele Objekte gibts?
@@ -53,12 +40,9 @@ void Spriteman::updateSprites(sf::RenderWindow &window)
 			selectedSprite = nullptr;
 	}
 	
-	
   	std::list<ASprite*>::iterator it;
 	for (it = listOfObjects.begin(); it != listOfObjects.end(); ++it)
 	{
-		//***************
-		//Editor Mechanic
 		if(Input::instance().pressed(sf::Mouse::Left, true) &&
 		   !Input::instance().heldDown(sf::Keyboard::Space))
 		{
@@ -66,40 +50,21 @@ void Spriteman::updateSprites(sf::RenderWindow &window)
 			if( border.contains(Input::instance().getMousePosition().x + framePosition.x ,
 								Input::instance().getMousePosition().y + framePosition.y) )
 			{
-				firstClick = true;
-				
+				firstClick = true;	
 				xOffset = ((**it)).getPosition().x + ((**it)).getOrigin().x
 									- Input::instance().getMousePosition().x;
 				yOffset = ((**it)).getPosition().y + ((**it)).getOrigin().y
-									- Input::instance().getMousePosition().y;
-				
+									- Input::instance().getMousePosition().y;		
 				selectedSprite = (*it);
 				//selectedSprite->setOrigin(border.width/2, border.height/2);
 			}
 		}
-		
-
-		//*************
-		//Game Mechanic
-		
-    	if((**it).checkIfInSight(framePosition))
-    	{
-			//listOfObjects.erase(it);
-    	}
-    	(**it).move(frameTime);
-		(**it).update(frameTime);
-		window.draw((**it));
-		
-	}//For ALL Sprites ^
+	}
 	
-	
-	//***************
-	//Editor Mechanic
 	if(Input::instance().released(sf::Mouse::Left, true) &&
 	   !firstClick)
 	{
 		selectedSprite = nullptr;
-		printf("set nullptr\n");
 	}
 	
 	if(selectedSprite != 0 &&
@@ -113,37 +78,79 @@ void Spriteman::updateSprites(sf::RenderWindow &window)
 		}
 		else
 		{
-			//Transform
 			float distanceX = selectedSprite->getPosition().x - Input::instance().getMousePosition().x;
 			float distanceY = selectedSprite->getPosition().y - Input::instance().getMousePosition().y;
 			
 			if(menu->scale)
-			{
-				float x = abs(distanceX);
-				float y = abs(distanceY);
-				
-				selectedSprite->setScale(x/100 , y/100);
-			}
-			
-			if(menu->rotate)
-			{
-				double dist = distanceX*distanceX + distanceY*distanceY;
-				dist = sqrt(dist);
-				double ankathete = Input::instance().getMousePosition().x - selectedSprite->getPosition().x;
-				
-				double angle = acos(ankathete/dist);
-				angle *= 180 / 3.141592736;
-				
-				if(Input::instance().getMousePosition().y < selectedSprite->getPosition().y)
-					angle *= -1;
-				
-				if (rotationOffset != 400){selectedSprite->setRotation(angle + rotationOffset);}
-				else {rotationOffset = selectedSprite->getRotation() - angle;}
-			}
+				scale(distanceX, distanceY);
+			else if(menu->rotate)
+				rotate(distanceX, distanceY);
 		}
 	}
-} //UpdateSprites ^
+	return usedInput;
+} //Update ^
 
+
+
+void Spriteman::scale(float x, float y)
+{
+	float distanceY = abs(y);
+	float distanceX = abs(x);
+	if(!Input::instance().heldDown(sf::Keyboard::LShift) &&
+	   !Input::instance().heldDown(sf::Keyboard::LControl))
+		distanceY = distanceX;
+	selectedSprite->setScale(distanceX/100 , distanceY/100);
+}
+
+
+
+void Spriteman::rotate(float x, float y)
+{
+	double dist = x*x + y*y;
+	dist = sqrt(dist);
+	double ankathete = Input::instance().getMousePosition().x - selectedSprite->getPosition().x;
+	
+	double angle = acos(ankathete/dist);
+	angle *= 180 / 3.141592736;
+	
+	if(Input::instance().getMousePosition().y < selectedSprite->getPosition().y)
+		angle *= -1;
+	
+	if (rotationOffset != 400){selectedSprite->setRotation(angle + rotationOffset);}
+	else {rotationOffset = selectedSprite->getRotation() - angle;}
+}
+
+
+
+
+
+void Spriteman::updateSprites(sf::RenderWindow & window)
+{
+	sf::Time timeElapsed = clock.restart();
+	frameTime = timeElapsed.asMilliseconds();
+	
+	
+	//TODO: View Manager Position fragen
+	// wg Sprite wählen
+	//Vom View Manager hierher übergeben oda so
+	
+	framePosition = window.getView().getCenter()
+	- sf::Vector2f(window.getSize().x / 2,
+				   window.getSize().y / 2);
+	
+	
+	std::list<ASprite*>::iterator it;
+	for (it = listOfObjects.begin(); it != listOfObjects.end(); ++it)
+	{
+		if((**it).checkIfInSight(framePosition))
+		{
+			//listOfObjects.erase(it);
+		}
+		(**it).move(frameTime);
+		(**it).update(frameTime);
+		window.draw((**it));
+	}
+}
 
 
 

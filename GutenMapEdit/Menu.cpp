@@ -12,19 +12,6 @@
 #include "Menu.h"
 
 
-/*
- 
- sf::Font font = ResourceManager::instance().getFont();
- sf::Text fps("", font, 18);
- fps.setColor(sf::Color(155,155,155));
- fps.setPosition(10, 10);
- 
- 
- */
-
-
-
-
 
 Menu::Menu()
 {
@@ -79,8 +66,10 @@ void Menu::registerSpriteMan(Spriteman * spritey)
 
 
 
-void Menu::update(sf::RenderWindow &window)
+bool Menu::update()
 {
+	bool tookInput = false;
+	
 	/*
 	 // TODO: Deactivate Buttons
 	 
@@ -100,7 +89,7 @@ void Menu::update(sf::RenderWindow &window)
 	std::list<sf::Text*>::iterator it;
 	for (it = menuList.begin(); it != menuList.end(); ++it)
 	{
-		window.draw((**it));
+		
 		
 		std::string itemName = ((**it)).getString();
 		
@@ -110,7 +99,9 @@ void Menu::update(sf::RenderWindow &window)
 			if( border.contains(Input::instance().getMousePosition().x ,
 								Input::instance().getMousePosition().y ) )
 			{
-				std::cout << "Clicked Menu Item: " << itemName <<std::endl;
+				tookInput = true;
+				
+				//std::cout << "Clicked Menu Item: " << itemName <<std::endl;
 				
 				if(itemName == "Add")
 					add = true;
@@ -131,9 +122,25 @@ void Menu::update(sf::RenderWindow &window)
 					rotate = false;
 					scale = false;
 				}
-		
 			}//hit
 		}
+
+	} // for all ^
+	
+	
+	return tookInput;
+	
+}//update
+
+
+void Menu::draw(sf::RenderWindow &window)
+{
+	std::list<sf::Text*>::iterator it;
+	for (it = menuList.begin(); it != menuList.end(); ++it)
+	{
+		window.draw((**it));
+		
+		std::string itemName = ((**it)).getString();
 		if (itemName == "Add")
 		{
 			if (add)
@@ -141,28 +148,28 @@ void Menu::update(sf::RenderWindow &window)
 			else
 				((**it)).setColor(sf::Color::White);
 		}
-		if (itemName == "Rotate")
+		else if (itemName == "Rotate")
 		{
 			if (rotate)
 				((**it)).setColor(sf::Color::Green);
 			else
 				((**it)).setColor(sf::Color::White);
 		}
-		if (itemName == "Scale")
+		else if (itemName == "Scale")
 		{
 			if (scale)
 				((**it)).setColor(sf::Color::Green);
 			else
 				((**it)).setColor(sf::Color::White);
 		}
-			
-	
-	} // for all ^
-	
-	
-	return;
-	
-}//update
+	}
+}
+
+
+
+
+
+
 
 
 
