@@ -26,6 +26,7 @@ public:
 	bool heldDown	(int value, bool mouse = false);
 	bool pressed	(int value, bool mouse = false);
 	bool released	(int value, bool mouse = false);
+	int mouseWheel(){return mouseWheelClicks;}
 	void clearUnique ();
 	sf::Vector2i getMousePosition(){return mousePosition;}
 	
@@ -38,6 +39,7 @@ private:
 	std::set<int> pressedKeyboard;
 	std::set<int> releasedKeyboard;
 	sf::Vector2i mousePosition;
+	int mouseWheelClicks;
 
 	
 	

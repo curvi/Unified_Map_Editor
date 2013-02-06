@@ -47,7 +47,9 @@ private:
 	void rotate(float x, float y);
 	void scale(float x, float y);
 	ASprite* selectedSprite;
-
+	sf::RectangleShape selectionRectangle;
+	sf::RectangleShape hoverRectangle;
+	
 	sf::Clock clock;
 	float frameTime;
 	float timesave, fpsSave;

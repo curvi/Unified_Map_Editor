@@ -26,9 +26,6 @@ void Viewmanager::registerWindow(sf::RenderWindow & win)
 	
 
 
-
-
-
 bool Viewmanager::setGameView(sf::RenderWindow & win)
 {
 	if(Input::instance().heldDown(sf::Keyboard::Space))
@@ -49,12 +46,22 @@ bool Viewmanager::setGameView(sf::RenderWindow & win)
 	}
 	if(Input::instance().released(sf::Mouse::Left, true) ||
 	   Input::instance().released(sf::Keyboard::Space))
-		inputLock = false;
+	{	inputLock = false; }
+	
+	gameView.zoom( 1 - (Input::instance().mouseWheel() * 0.02 )  ); // 2% zoom per Click of Wheel
 	
 	win.setView(gameView);
 	
 	return inputLock;
 }
+
+
+
+
+
+
+
+
 
 
 

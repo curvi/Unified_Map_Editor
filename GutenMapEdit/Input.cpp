@@ -12,6 +12,8 @@
 
 void Input::poll(sf::RenderWindow & window)
 {
+	mouseWheelClicks = 0;
+	
 	// Process events
 	sf::Event event;
 	while (window.pollEvent(event))
@@ -69,6 +71,10 @@ void Input::update(sf::Event event)
 		releasedMouse.insert(event.mouseButton.button);	//Single Event
 		mouseDown.erase(event.mouseButton.button);
 		return;
+	}
+	else if (event.type == sf::Event::MouseWheelMoved)
+	{
+		mouseWheelClicks = event.mouseWheel.delta; // Zahl der Zacken.
 	}
 	
 }
