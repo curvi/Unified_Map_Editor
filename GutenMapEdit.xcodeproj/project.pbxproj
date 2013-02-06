@@ -10,9 +10,9 @@
 		271EA84716B41DA40037D55E /* ResourcePath.mm in Sources */ = {isa = PBXBuildFile; fileRef = 271EA84616B41DA40037D55E /* ResourcePath.mm */; };
 		271EA84A16B41DA40037D55E /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 271EA84916B41DA40037D55E /* main.cpp */; };
 		2726995316B5534900FE9565 /* Input.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2726995116B5534900FE9565 /* Input.cpp */; };
+		273E35B016C240B100557428 /* Viewmanager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 273E35AE16C240B100557428 /* Viewmanager.cpp */; };
 		2742700F16BF962A00054B39 /* Menu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2742700D16BF962A00054B39 /* Menu.cpp */; };
 		2742701B16C1455E00054B39 /* App.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2742701916C1455E00054B39 /* App.cpp */; };
-		2777CE6716B8167C0009330F /* Button.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2777CE6516B8167C0009330F /* Button.cpp */; };
 		279E476D16B433B600134E5E /* Spriteman.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 279E476516B433B600134E5E /* Spriteman.cpp */; };
 		279E476F16B433B600134E5E /* ResourceManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 279E476816B433B600134E5E /* ResourceManager.cpp */; };
 		279E477A16B437A400134E5E /* Level.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 279E477816B437A400134E5E /* Level.cpp */; };
@@ -28,12 +28,12 @@
 		271EA84916B41DA40037D55E /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		2726995116B5534900FE9565 /* Input.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Input.cpp; sourceTree = "<group>"; };
 		2726995216B5534900FE9565 /* Input.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Input.h; sourceTree = "<group>"; };
+		273E35AE16C240B100557428 /* Viewmanager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Viewmanager.cpp; sourceTree = "<group>"; };
+		273E35AF16C240B100557428 /* Viewmanager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Viewmanager.h; sourceTree = "<group>"; };
 		2742700D16BF962A00054B39 /* Menu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Menu.cpp; sourceTree = "<group>"; };
 		2742700E16BF962A00054B39 /* Menu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Menu.h; sourceTree = "<group>"; };
 		2742701916C1455E00054B39 /* App.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = App.cpp; sourceTree = "<group>"; };
 		2742701C16C16ADE00054B39 /* App.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = App.h; sourceTree = "<group>"; };
-		2777CE6516B8167C0009330F /* Button.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Button.cpp; path = GutenMapEdit/Sprites/Button.cpp; sourceTree = "<group>"; };
-		2777CE6616B8167C0009330F /* Button.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Button.h; path = GutenMapEdit/Sprites/Button.h; sourceTree = "<group>"; };
 		279E476316B433B600134E5E /* Collision.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Collision.cpp; sourceTree = "<group>"; };
 		279E476416B433B600134E5E /* Collision.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Collision.h; sourceTree = "<group>"; };
 		279E476516B433B600134E5E /* Spriteman.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Spriteman.cpp; sourceTree = "<group>"; };
@@ -46,15 +46,10 @@
 		279E477E16B437D800134E5E /* ASprite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ASprite.h; path = GutenMapEdit/Sprites/ASprite.h; sourceTree = "<group>"; };
 		279E477F16B437D800134E5E /* Player.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Player.cpp; path = GutenMapEdit/Sprites/Player.cpp; sourceTree = "<group>"; };
 		279E478016B437D800134E5E /* Player.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Player.h; path = GutenMapEdit/Sprites/Player.h; sourceTree = "<group>"; };
-		27E3CFD016BEF7BB00098271 /* addbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = addbutton.png; sourceTree = "<group>"; };
-		27E3CFD116BEF7BB00098271 /* button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button.png; sourceTree = "<group>"; };
-		27E3CFD216BEF7BB00098271 /* delbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delbutton.png; sourceTree = "<group>"; };
 		27E3CFD316BEF7BB00098271 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		27E3CFD416BEF7BB00098271 /* nice_music.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; path = nice_music.ogg; sourceTree = "<group>"; };
 		27E3CFD516BEF7BB00098271 /* player.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player.png; sourceTree = "<group>"; };
-		27E3CFD616BEF7BB00098271 /* rotatebutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rotatebutton.png; sourceTree = "<group>"; };
 		27E3CFD716BEF7BB00098271 /* sansation.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sansation.ttf; sourceTree = "<group>"; };
-		27E3CFD816BEF7BB00098271 /* scalebutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scalebutton.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,10 +84,12 @@
 			children = (
 				2742701C16C16ADE00054B39 /* App.h */,
 				2742701916C1455E00054B39 /* App.cpp */,
+				273E35AF16C240B100557428 /* Viewmanager.h */,
+				273E35AE16C240B100557428 /* Viewmanager.cpp */,
 				279E476616B433B600134E5E /* Spriteman.h */,
 				279E476516B433B600134E5E /* Spriteman.cpp */,
-				2742700D16BF962A00054B39 /* Menu.cpp */,
 				2742700E16BF962A00054B39 /* Menu.h */,
+				2742700D16BF962A00054B39 /* Menu.cpp */,
 				271EA84916B41DA40037D55E /* main.cpp */,
 				279E478516B437E600134E5E /* Sprite */,
 				279E477C16B437B900134E5E /* Level */,
@@ -121,11 +118,6 @@
 		2777CE6B16B819350009330F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				27E3CFD016BEF7BB00098271 /* addbutton.png */,
-				27E3CFD216BEF7BB00098271 /* delbutton.png */,
-				27E3CFD816BEF7BB00098271 /* scalebutton.png */,
-				27E3CFD616BEF7BB00098271 /* rotatebutton.png */,
-				27E3CFD116BEF7BB00098271 /* button.png */,
 				27E3CFD316BEF7BB00098271 /* icon.png */,
 				27E3CFD416BEF7BB00098271 /* nice_music.ogg */,
 				27E3CFD516BEF7BB00098271 /* player.png */,
@@ -147,8 +139,6 @@
 		279E478516B437E600134E5E /* Sprite */ = {
 			isa = PBXGroup;
 			children = (
-				2777CE6516B8167C0009330F /* Button.cpp */,
-				2777CE6616B8167C0009330F /* Button.h */,
 				279E477D16B437D800134E5E /* ASprite.cpp */,
 				279E477E16B437D800134E5E /* ASprite.h */,
 				279E477F16B437D800134E5E /* Player.cpp */,
@@ -245,9 +235,9 @@
 				279E476D16B433B600134E5E /* Spriteman.cpp in Sources */,
 				279E476F16B433B600134E5E /* ResourceManager.cpp in Sources */,
 				2726995316B5534900FE9565 /* Input.cpp in Sources */,
-				2777CE6716B8167C0009330F /* Button.cpp in Sources */,
 				2742700F16BF962A00054B39 /* Menu.cpp in Sources */,
 				2742701B16C1455E00054B39 /* App.cpp in Sources */,
+				273E35B016C240B100557428 /* Viewmanager.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
