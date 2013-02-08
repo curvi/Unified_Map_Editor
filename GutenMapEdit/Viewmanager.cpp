@@ -12,6 +12,8 @@
 void Viewmanager::registerWindow(sf::RenderWindow & win)
 {
 	gameView = sf::View(win.getDefaultView());
+	zoomFactor = 1;
+	inputLock = false;
 }
 
 
@@ -28,19 +30,21 @@ void Viewmanager::registerWindow(sf::RenderWindow & win)
 
 bool Viewmanager::setGameView(sf::RenderWindow & win)
 {
+	frameSize = win.getSize();
+	
 	if(Input::instance().heldDown(sf::Keyboard::Space))
 	{
 		//Beim Drücken erstmal speichern, dann beim halten ziehen
 		if(Input::instance().pressed(sf::Mouse::Left, true))
 		{
-			mousePos = Input::instance().getMousePosition();
+			mouseOffset = Input::instance().getMousePosition();
 			inputLock = true;
 		}
 		else if(Input::instance().heldDown(sf::Mouse::Left, true) && inputLock)
 		{
-			sf::Vector2i distance = Input::instance().getMousePosition() - mousePos;
+			sf::Vector2i distance = Input::instance().getMousePosition() - mouseOffset;
 			distance *= -1;
-			mousePos = Input::instance().getMousePosition();
+			mouseOffset = Input::instance().getMousePosition();
 			gameView.move(distance.x, distance.y);
 		}
 	}
@@ -48,7 +52,20 @@ bool Viewmanager::setGameView(sf::RenderWindow & win)
 	   Input::instance().released(sf::Keyboard::Space))
 	{	inputLock = false; }
 	
-	gameView.zoom( 1 - (Input::instance().mouseWheel() * 0.02 )  ); // 2% zoom per Click of Wheel
+	if(Input::instance().mouseWheel() != 0)
+	{
+		float currentZoom = 1 - (Input::instance().mouseWheel() * 0.01 );
+		zoomFactor *= currentZoom;
+		gameView.zoom(currentZoom); // 2% zoom per Click of Wheel
+	}
+	if(Input::instance().pressed(sf::Mouse::Middle, true))
+	{
+		zoomFactor = 1;
+		gameView.setSize(win.getDefaultView().getSize());
+	}
+	
+	// std::cout << "zoom: " << (zoomFactor) << std::endl;
+	// std::cout << "wheel: " << Input::instance().mouseWheel() << std::endl;
 	
 	win.setView(gameView);
 	
@@ -57,8 +74,29 @@ bool Viewmanager::setGameView(sf::RenderWindow & win)
 
 
 
+sf::Vector2f Viewmanager::transformPointToView(sf::Vector2i a)
+{
+	//Translation
+	sf::Vector2f offset = gameView.getCenter() - sf::Vector2f(frameSize.x / 2, frameSize.y / 2) ;
+	
+	//Scaling-Zooming
+	sf::Vector2f zoomCorrection = (sf::Vector2f(a.x, a.y)
+								   - sf::Vector2f(frameSize.x / 2, frameSize.y / 2))
+									* (zoomFactor - 1);
+	
+	return sf::Vector2f(a.x, a.y) + offset + zoomCorrection;
+}
 
 
+
+
+
+sf::Vector2f Viewmanager::transformPointToView (sf::Vector2f a)
+{
+	
+
+	return a;
+}
 
 
 

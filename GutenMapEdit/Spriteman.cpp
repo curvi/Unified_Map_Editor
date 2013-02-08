@@ -26,7 +26,7 @@ Spriteman::Spriteman ()
 	selectedSprite = 0;
 }
 
-void Spriteman::registerMenu(Menu* menuptr)
+void Spriteman::registerObjects(Menu* menuptr)
 {
 	menu = menuptr;
 }
@@ -35,8 +35,10 @@ void Spriteman::registerMenu(Menu* menuptr)
 bool Spriteman::editSprites(sf::RenderWindow &window)
 {
 	bool usedInput = false;
+	if(Input::instance().heldDown(sf::Keyboard::Space))
+		return false;
+	
 	//DEBUGGING
-	//printf("Framepos: %.f, %.f", framePosition.x, framePosition.y);
 	//printf("Sprites %li \n",listOfObjects.size()); //Wie viele Objekte gibts?
 	
 	if(Input::instance().pressed(sf::Mouse::Left, true)) //Presumption
@@ -49,25 +51,26 @@ bool Spriteman::editSprites(sf::RenderWindow &window)
 	for (it = listOfObjects.begin(); it != listOfObjects.end(); ++it)
 	{
 		sf::Rect<float> border = ((**it)).getGlobalBounds();
-		if( border.contains(Input::instance().getMousePosition().x + framePosition.x ,
-							Input::instance().getMousePosition().y + framePosition.y) )
+		if( border.contains(Input::instance().getViewMousePosition().x ,
+							Input::instance().getViewMousePosition().y ))
 		{
 			if(Input::instance().pressed(sf::Mouse::Left, true))
 			{
 				firstClick = true;
 				xOffset = ((**it)).getPosition().x + ((**it)).getOrigin().x
-				- Input::instance().getMousePosition().x;
+							- Input::instance().getViewMousePosition().x;
 				yOffset = ((**it)).getPosition().y + ((**it)).getOrigin().y
-				- Input::instance().getMousePosition().y;
+							- Input::instance().getViewMousePosition().y;
 				selectedSprite = (*it);
 			}
 			if(!Input::instance().heldDown(sf::Mouse::Left, true) &&
-			   ((*it)) != selectedSprite)
+			   (*it) != selectedSprite )
 			{
-				hoverRectangle.setPosition(border.left, border.top);
-				hoverRectangle.setSize(sf::Vector2f(border.width, border.height));
+				hoverRectangle = shapeRealBorder((*it), hoverRectangle);
 				hoverRectangle.setOutlineColor(sf::Color::White);
 			}
+			if( (*it) == selectedSprite)
+				hoverRectangle.setOutlineColor(sf::Color::Transparent);
 		}
 	}
 	
@@ -84,13 +87,13 @@ bool Spriteman::editSprites(sf::RenderWindow &window)
 	{
 		if(firstClick)
 		{
-			selectedSprite->setPosition(Input::instance().getMousePosition().x + xOffset,
-										Input::instance().getMousePosition().y + yOffset);
+			selectedSprite->setPosition(Input::instance().getViewMousePosition().x + xOffset,
+										Input::instance().getViewMousePosition().y + yOffset);
 		}
 		else
 		{
-			float distanceX = selectedSprite->getPosition().x - Input::instance().getMousePosition().x;
-			float distanceY = selectedSprite->getPosition().y - Input::instance().getMousePosition().y;
+			float distanceX = selectedSprite->getPosition().x - Input::instance().getViewMousePosition().x;
+			float distanceY = selectedSprite->getPosition().y - Input::instance().getViewMousePosition().y;
 			
 			if(menu->scale)
 				scale(distanceX, distanceY);
@@ -119,12 +122,12 @@ void Spriteman::rotate(float x, float y)
 {
 	double dist = x*x + y*y;
 	dist = sqrt(dist);
-	double ankathete = Input::instance().getMousePosition().x - selectedSprite->getPosition().x;
+	double ankathete = Input::instance().getViewMousePosition().x - selectedSprite->getPosition().x;
 	
 	double angle = acos(ankathete/dist);
 	angle *= 180 / 3.141592736;
 	
-	if(Input::instance().getMousePosition().y < selectedSprite->getPosition().y)
+	if(Input::instance().getViewMousePosition().y < selectedSprite->getPosition().y)
 		angle *= -1;
 	
 	if (rotationOffset != 400){selectedSprite->setRotation(angle + rotationOffset);}
@@ -146,15 +149,11 @@ void Spriteman::updateSprites(sf::RenderWindow & window)
 	// wg Sprite wählen
 	//Vom View Manager hierher übergeben oda so
 	
-	framePosition = window.getView().getCenter()
-	- sf::Vector2f(window.getSize().x / 2,
-				   window.getSize().y / 2);
-	
 	
 	std::list<ASprite*>::iterator it;
 	for (it = listOfObjects.begin(); it != listOfObjects.end(); ++it)
 	{
-		if((**it).checkIfInSight(framePosition))
+		//if((**it).checkIfInSight(viewman))
 		{
 			//listOfObjects.erase(it);
 		}
@@ -165,16 +164,23 @@ void Spriteman::updateSprites(sf::RenderWindow & window)
 	
 	if(selectedSprite != 0)
 	{
-		sf::Rect<float> border = selectedSprite->getGlobalBounds();
-		selectionRectangle.setPosition(border.left, border.top);
-		selectionRectangle.setSize(sf::Vector2f(border.width, border.height));
-		if(selectionRectangle.getGlobalBounds() == hoverRectangle.getGlobalBounds())//If sel = hover
-			hoverRectangle.setOutlineColor(sf::Color::Transparent);
+		selectionRectangle = shapeRealBorder(selectedSprite, selectionRectangle);
 		window.draw(selectionRectangle);
 	}
 	window.draw(hoverRectangle);
 }
 
+
+
+sf::RectangleShape Spriteman::shapeRealBorder(ASprite * sprite, sf::RectangleShape shape)
+{
+	shape.setPosition(sprite->getPosition().x, sprite->getPosition().y);
+	sf::Rect<float> border = sprite->getLocalBounds();
+	shape.setSize(sf::Vector2f(border.width, border.height));
+	shape.setScale(sprite->getScale());
+	shape.setRotation(sprite->getRotation());
+	return shape;
+}
 
 
 
@@ -183,6 +189,10 @@ void Spriteman::includeSprite(ASprite* figure)
 	listOfObjects.push_back(figure);
 	return;
 }
+
+
+
+
 
 //TODO: Auslagern von FPS
 
@@ -215,7 +225,6 @@ float Spriteman::getTime()
 {
 	return frameTime;
 }
-
 
 
 

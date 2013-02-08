@@ -18,9 +18,11 @@
 
 #include <SFML/Graphics.hpp>
 
-#include "Input.h"
 #include "Sprites/ASprite.h"
 #include "Menu.h"
+#include "Input.h"
+
+
 
 class Menu;
 
@@ -29,7 +31,7 @@ class Spriteman
 public:
 	
 	Spriteman ();
-	void registerMenu(Menu* menuptr);
+	void registerObjects(Menu* menuptr);
 	
 	float getTime();
 	void updateSprites(sf::RenderWindow &window);
@@ -43,28 +45,26 @@ public:
 private:
 	
 	std::list<ASprite*> listOfObjects;	
-	
-	void rotate(float x, float y);
-	void scale(float x, float y);
+		
 	ASprite* selectedSprite;
 	sf::RectangleShape selectionRectangle;
 	sf::RectangleShape hoverRectangle;
+	
+	//Geometric Helper Functions
+	sf::RectangleShape shapeRealBorder(ASprite * sprite, sf::RectangleShape shape);
+	void rotate(float x, float y);
+	void scale(float x, float y);
 	
 	sf::Clock clock;
 	float frameTime;
 	float timesave, fpsSave;
 	int counter;
-	sf::Vector2f framePosition;
+
 	int xOffset, yOffset;
 	float rotationOffset;
 	bool firstClick;
 
-	
-	
 	Menu * menu;
-
-	
- 
 };
 
 

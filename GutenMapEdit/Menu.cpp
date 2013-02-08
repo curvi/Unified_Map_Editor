@@ -15,6 +15,11 @@
 
 Menu::Menu()
 {
+	this->add = false;
+	this->rotate = false;
+	this->scale = false;
+	
+	
 	/*
 	//TODO: Menu Background
 	sf::Image img;

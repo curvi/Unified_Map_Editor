@@ -21,9 +21,7 @@ void Input::poll(sf::RenderWindow & window)
 		// Espace pressed, close Window, Super+Q : exit
 		if (event.type == sf::Event::Closed ||
 			(event.type == sf::Event::KeyPressed &&
-			 ((event.key.code == sf::Keyboard::Escape)
-			  || (sf::Keyboard::isKeyPressed(sf::Keyboard::LSystem)
-				  && event.key.code == sf::Keyboard::Q) ) ) )
+			 event.key.code == sf::Keyboard::Escape)  )
 		{ window.close(); }
 		
 		update(event);
@@ -130,7 +128,10 @@ bool Input::heldDown(int value, bool mouse)
 }
 
 
-
+sf::Vector2f Input::getViewMousePosition()
+{
+	return viewmanager->transformPointToView(mousePosition);
+}
 
 
 

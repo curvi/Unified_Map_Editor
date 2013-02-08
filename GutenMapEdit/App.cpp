@@ -14,7 +14,7 @@
 
 
 #include "App.h"
-
+#include "Input.h"
 
 App::App()
 {
@@ -37,8 +37,9 @@ App::App()
     window.setIcon(icon.getSize().x, icon.getSize().y, icon.getPixelsPtr());
 */
 	
+	Input::instance().registerObjects(&viewman);
 	menu.registerSpriteMan(&spritey);
-	spritey.registerMenu(&menu);
+	spritey.registerObjects(&menu);
 	viewman.registerWindow(window);
 }
 

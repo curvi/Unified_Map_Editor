@@ -14,12 +14,15 @@
 #include <set>
 #include <SFML/Graphics.hpp>
 
+#include "Viewmanager.h"
+class Viewmanager;
 
 class Input
 {
 
 public:
 	
+	void registerObjects(Viewmanager* v){viewmanager = v;}
 	void poll(sf::RenderWindow & window);
 	
 	void update(sf::Event event);
@@ -29,6 +32,7 @@ public:
 	int mouseWheel(){return mouseWheelClicks;}
 	void clearUnique ();
 	sf::Vector2i getMousePosition(){return mousePosition;}
+	sf::Vector2f getViewMousePosition();
 	
 private:
 	
@@ -41,6 +45,7 @@ private:
 	sf::Vector2i mousePosition;
 	int mouseWheelClicks;
 
+	Viewmanager* viewmanager;
 	
 	
 	/* Singleton */
