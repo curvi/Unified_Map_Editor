@@ -16,7 +16,7 @@
 		279E476D16B433B600134E5E /* Spriteman.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 279E476516B433B600134E5E /* Spriteman.cpp */; };
 		279E476F16B433B600134E5E /* ResourceManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 279E476816B433B600134E5E /* ResourceManager.cpp */; };
 		279E477A16B437A400134E5E /* Level.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 279E477816B437A400134E5E /* Level.cpp */; };
-		279E478116B437D800134E5E /* ASprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 279E477D16B437D800134E5E /* ASprite.cpp */; };
+		279E478116B437D800134E5E /* Sprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 279E477D16B437D800134E5E /* Sprite.cpp */; };
 		279E478316B437D800134E5E /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 279E477F16B437D800134E5E /* Player.cpp */; };
 /* End PBXBuildFile section */
 
@@ -42,8 +42,8 @@
 		279E476916B433B600134E5E /* ResourceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResourceManager.h; sourceTree = "<group>"; };
 		279E477816B437A400134E5E /* Level.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Level.cpp; path = GutenMapEdit/Level/Level.cpp; sourceTree = "<group>"; };
 		279E477916B437A400134E5E /* Level.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Level.h; path = GutenMapEdit/Level/Level.h; sourceTree = "<group>"; };
-		279E477D16B437D800134E5E /* ASprite.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = ASprite.cpp; path = GutenMapEdit/Sprites/ASprite.cpp; sourceTree = "<group>"; };
-		279E477E16B437D800134E5E /* ASprite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ASprite.h; path = GutenMapEdit/Sprites/ASprite.h; sourceTree = "<group>"; };
+		279E477D16B437D800134E5E /* Sprite.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Sprite.cpp; path = GutenMapEdit/Sprites/Sprite.cpp; sourceTree = "<group>"; };
+		279E477E16B437D800134E5E /* Sprite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Sprite.h; path = GutenMapEdit/Sprites/Sprite.h; sourceTree = "<group>"; };
 		279E477F16B437D800134E5E /* Player.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Player.cpp; path = GutenMapEdit/Sprites/Player.cpp; sourceTree = "<group>"; };
 		279E478016B437D800134E5E /* Player.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Player.h; path = GutenMapEdit/Sprites/Player.h; sourceTree = "<group>"; };
 		27E3CFD316BEF7BB00098271 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
@@ -139,8 +139,8 @@
 		279E478516B437E600134E5E /* Sprite */ = {
 			isa = PBXGroup;
 			children = (
-				279E477D16B437D800134E5E /* ASprite.cpp */,
-				279E477E16B437D800134E5E /* ASprite.h */,
+				279E477D16B437D800134E5E /* Sprite.cpp */,
+				279E477E16B437D800134E5E /* Sprite.h */,
 				279E477F16B437D800134E5E /* Player.cpp */,
 				279E478016B437D800134E5E /* Player.h */,
 			);
@@ -227,7 +227,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				279E478116B437D800134E5E /* ASprite.cpp in Sources */,
+				279E478116B437D800134E5E /* Sprite.cpp in Sources */,
 				279E478316B437D800134E5E /* Player.cpp in Sources */,
 				279E477A16B437A400134E5E /* Level.cpp in Sources */,
 				271EA84716B41DA40037D55E /* ResourcePath.mm in Sources */,
