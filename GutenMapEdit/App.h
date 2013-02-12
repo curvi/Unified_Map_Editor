@@ -20,6 +20,7 @@
 #include "Menu.h"
 #include "Viewmanager.h"
 
+namespace ume {
 
 class App
 {
@@ -32,7 +33,7 @@ public:
 	int run();
 	
 	Viewmanager viewman;
-	Spriteman spritey;
+	ume::Spriteman spritey;
 	Menu menu;
 
 	
@@ -43,6 +44,6 @@ private:
 };
 
 
-
+}
 
 #endif /* defined(__GutenMapEdit__App__) */

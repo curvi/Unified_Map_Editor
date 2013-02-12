@@ -10,9 +10,9 @@
 #include "Spriteman.h"
 #include <cmath>
 
+using namespace ume;
 
-
-Spriteman::Spriteman ()
+ume::Spriteman::Spriteman ()
 {
 	timesave = fpsSave = counter = 0;
 	
@@ -26,13 +26,13 @@ Spriteman::Spriteman ()
 	selectedSprite = 0;
 }
 
-void Spriteman::registerObjects(Menu* menuptr)
+void ume::Spriteman::registerObjects(Menu* menuptr)
 {
 	menu = menuptr;
 }
 
 
-bool Spriteman::editSprites(sf::RenderWindow &window)
+bool ume::Spriteman::editSprites(sf::RenderWindow &window)
 {
 	bool usedInput = false;
 	if(Input::instance().heldDown(sf::Keyboard::Space))
@@ -47,7 +47,7 @@ bool Spriteman::editSprites(sf::RenderWindow &window)
 		rotationOffset = 400;
 	}
 	
-  	std::list<ASprite*>::iterator it;
+  	std::list<Sprite*>::iterator it;
 	for (it = listOfObjects.begin(); it != listOfObjects.end(); ++it)
 	{
 		sf::Rect<float> border = ((**it)).getGlobalBounds();
@@ -106,7 +106,7 @@ bool Spriteman::editSprites(sf::RenderWindow &window)
 
 
 
-void Spriteman::scale(float x, float y)
+void ume::Spriteman::scale(float x, float y)
 {
 	float distanceY = abs(y);
 	float distanceX = abs(x);
@@ -118,7 +118,7 @@ void Spriteman::scale(float x, float y)
 
 
 
-void Spriteman::rotate(float x, float y)
+void ume::Spriteman::rotate(float x, float y)
 {
 	double dist = x*x + y*y;
 	dist = sqrt(dist);
@@ -138,7 +138,7 @@ void Spriteman::rotate(float x, float y)
 
 
 
-void Spriteman::updateSprites(sf::RenderWindow & window)
+void ume::Spriteman::updateSprites(sf::RenderWindow & window)
 {
 	sf::Time timeElapsed = clock.restart();
 	frameTime = timeElapsed.asMilliseconds();
@@ -150,7 +150,7 @@ void Spriteman::updateSprites(sf::RenderWindow & window)
 	//Vom View Manager hierher übergeben oda so
 	
 	
-	std::list<ASprite*>::iterator it;
+	std::list<Sprite*>::iterator it;
 	for (it = listOfObjects.begin(); it != listOfObjects.end(); ++it)
 	{
 		//if((**it).checkIfInSight(viewman))
@@ -172,7 +172,7 @@ void Spriteman::updateSprites(sf::RenderWindow & window)
 
 
 
-sf::RectangleShape Spriteman::shapeRealBorder(ASprite * sprite, sf::RectangleShape shape)
+sf::ume::RectangleShape Spriteman::shapeRealBorder(Sprite * sprite, sf::RectangleShape shape)
 {
 	shape.setPosition(sprite->getPosition().x, sprite->getPosition().y);
 	sf::Rect<float> border = sprite->getLocalBounds();
@@ -184,7 +184,7 @@ sf::RectangleShape Spriteman::shapeRealBorder(ASprite * sprite, sf::RectangleSha
 
 
 
-void Spriteman::includeSprite(ASprite* figure)
+void ume::Spriteman::includeSprite(Sprite* figure)
 {
 	listOfObjects.push_back(figure);
 	return;
@@ -196,7 +196,7 @@ void Spriteman::includeSprite(ASprite* figure)
 
 //TODO: Auslagern von FPS
 
-std::string Spriteman::printfps()
+std::string ume::Spriteman::printfps()
 {
 	timesave += frameTime*10e-3;
 	

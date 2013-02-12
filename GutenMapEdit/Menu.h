@@ -18,7 +18,10 @@
 #include "Spriteman.h"
 #include "Sprites/Player.h"
 
-class Spriteman;
+class ume::Spriteman;
+
+namespace ume {
+	
 
 class Menu
 {
@@ -26,7 +29,7 @@ class Menu
 public:
 	
 	Menu();
-	void registerSpriteMan(Spriteman * spritey);
+	void registerSpriteMan(ume::Spriteman * spritey);
 	
 	bool update();
 	void draw(sf::RenderWindow &window);
@@ -39,10 +42,11 @@ private:
 
 	sf::Font font;
 	std::list<sf::Text*> menuList;
-	Spriteman* spriteman;
+	ume::Spriteman* spriteman;
 	
 
 };
 
-
+}
+	
 #endif /* defined(__GutenMapEdit__Menu__) */

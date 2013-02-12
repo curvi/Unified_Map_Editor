@@ -18,40 +18,42 @@
 
 #include <SFML/Graphics.hpp>
 
-#include "Sprites/ASprite.h"
+#include "Sprites/Sprite.h"
 #include "Menu.h"
 #include "Input.h"
 
+class ume::Menu;
 
 
-class Menu;
+namespace ume {
 
+	
 class Spriteman
 {
 public:
 	
 	Spriteman ();
-	void registerObjects(Menu* menuptr);
+	void registerObjects(ume::Menu* menuptr);
 	
 	float getTime();
 	void updateSprites(sf::RenderWindow &window);
 	bool editSprites(sf::RenderWindow &window);
 
 	std::string printfps();
-    void includeSprite(ASprite* Figure);
+    void includeSprite(ume::Sprite* Figure);
 	void loadMenu();
 
 	
 private:
 	
-	std::list<ASprite*> listOfObjects;	
+	std::list<Sprite*> listOfObjects;	
 		
-	ASprite* selectedSprite;
+	Sprite* selectedSprite;
 	sf::RectangleShape selectionRectangle;
 	sf::RectangleShape hoverRectangle;
 	
 	//Geometric Helper Functions
-	sf::RectangleShape shapeRealBorder(ASprite * sprite, sf::RectangleShape shape);
+	sf::RectangleShape shapeRealBorder(Sprite * sprite, sf::RectangleShape shape);
 	void rotate(float x, float y);
 	void scale(float x, float y);
 	
@@ -64,9 +66,11 @@ private:
 	float rotationOffset;
 	bool firstClick;
 
-	Menu * menu;
+	ume::Menu * menu;
 };
 
+	
+}
 
 
 

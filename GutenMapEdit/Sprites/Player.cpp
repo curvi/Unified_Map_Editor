@@ -9,8 +9,9 @@
 #include "Player.h"
 #include "Input.h"
 
+using namespace ume;
 
-Player::Player() : ASprite()
+Player::Player() : Sprite()
 {
 	numberOfFrames = 4;
 	sampleTime = 150;
@@ -23,7 +24,7 @@ Player::Player() : ASprite()
 
 }
 
-Player::Player(sf::Texture pic) : ASprite(pic)
+Player::Player(sf::Texture pic) : Sprite(pic)
 {
 	Player();
 }

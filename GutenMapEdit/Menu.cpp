@@ -11,6 +11,7 @@
 
 #include "Menu.h"
 
+using namespace ume;
 
 
 Menu::Menu()

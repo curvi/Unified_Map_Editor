@@ -15,14 +15,17 @@
 #include <SFML/Graphics.hpp>
 
 #include "Viewmanager.h"
-class Viewmanager;
+
+class ume::Viewmanager;
+
+namespace ume {
 
 class Input
 {
 
 public:
 	
-	void registerObjects(Viewmanager* v){viewmanager = v;}
+	void registerObjects(ume::Viewmanager* v){viewmanager = v;}
 	void poll(sf::RenderWindow & window);
 	
 	void update(sf::Event event);
@@ -45,7 +48,7 @@ private:
 	sf::Vector2i mousePosition;
 	int mouseWheelClicks;
 
-	Viewmanager* viewmanager;
+	ume::Viewmanager* viewmanager;
 	
 	
 	/* Singleton */
@@ -65,7 +68,7 @@ private:
 };
 
 
-
+}
 
 
 #endif /* defined(__GutenMapEdit__Input__) */

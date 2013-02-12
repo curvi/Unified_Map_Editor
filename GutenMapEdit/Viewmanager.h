@@ -15,6 +15,7 @@
 
 #include "Input.h"
 
+namespace ume {
 
 class Viewmanager
 {
@@ -34,10 +35,10 @@ private:
 	float zoomFactor;
 	
 	bool inputLock;
-	sf::Vector2f transformPointToView (sf::Vector2f);
+	//sf::Vector2f transformPointToView (sf::Vector2f);
 };
 
-
+}
 
 
 

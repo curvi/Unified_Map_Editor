@@ -10,6 +10,8 @@
 
 #include <iostream>
 
+using namespace ume;
+
 void Input::poll(sf::RenderWindow & window)
 {
 	mouseWheelClicks = 0;

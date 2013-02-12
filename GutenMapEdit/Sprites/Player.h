@@ -9,10 +9,11 @@
 #ifndef Proto_Player_h
 #define Proto_Player_h
 
-#include "ASprite.h"
+#include "Sprite.h"
 
+namespace ume {
 
-class Player : public ASprite
+class Player : public Sprite
 {
     
 public:
@@ -27,6 +28,7 @@ private:
 		
 };
 
+}
 
 //Muss sich selbst das sf::Image zuteilen fürs Ändern
 

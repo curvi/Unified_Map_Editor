@@ -8,8 +8,9 @@
 
 #include "Viewmanager.h"
 
+using namespace ume;
 
-void Viewmanager::registerWindow(sf::RenderWindow & win)
+void ume::Viewmanager::registerWindow(sf::RenderWindow & win)
 {
 	gameView = sf::View(win.getDefaultView());
 	zoomFactor = 1;
@@ -28,7 +29,7 @@ void Viewmanager::registerWindow(sf::RenderWindow & win)
 	
 
 
-bool Viewmanager::setGameView(sf::RenderWindow & win)
+bool ume::Viewmanager::setGameView(sf::RenderWindow & win)
 {
 	frameSize = win.getSize();
 	
@@ -74,7 +75,7 @@ bool Viewmanager::setGameView(sf::RenderWindow & win)
 
 
 
-sf::Vector2f Viewmanager::transformPointToView(sf::Vector2i a)
+sf::Vector2f ume::Viewmanager::transformPointToView(sf::Vector2i a)
 {
 	//Translation
 	sf::Vector2f offset = gameView.getCenter() - sf::Vector2f(frameSize.x / 2, frameSize.y / 2) ;
@@ -88,15 +89,6 @@ sf::Vector2f Viewmanager::transformPointToView(sf::Vector2i a)
 }
 
 
-
-
-
-sf::Vector2f Viewmanager::transformPointToView (sf::Vector2f a)
-{
-	
-
-	return a;
-}
 
 
 

@@ -10,13 +10,15 @@
 #define Proto_Level_h
 
 
-#include "ASprite.h"
+#include "Sprite.h"
 #include "ResourceManager.h"
 
 
 //Anfangs immer das Menü laden! und bei Engine ablegen
 //dann Level gewählt und dann wirds geladen via virtual funkt. mit
 // Abstrakte Klasse: virtual void bla = 0;
+
+namespace ume {
 
 class Level {
 
@@ -27,11 +29,9 @@ public:
 
 private:
 	
-	sf::Sprite tiles [2][2];
-	//sf::Sprite monsterArray [][];
-	sf::Vector2f ViewPosition;
+	
     
 };
 
-
+}
 #endif

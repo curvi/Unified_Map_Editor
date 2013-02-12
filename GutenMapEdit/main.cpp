@@ -25,7 +25,7 @@
 int main(int, char const**)
 {
 	
-	App* app = new App();
+	ume::App* app = new ume::App();
 	assert(NULL != app && "main() Can't create App");
 	
 	

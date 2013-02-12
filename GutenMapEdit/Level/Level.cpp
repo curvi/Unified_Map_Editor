@@ -9,6 +9,9 @@
 #include "Level.h"
 #include <cstdio>
 
+using namespace ume;
+
+
 void Level::loadLevel()
 {
     //readFile while file.. x, y = playground [] []
@@ -29,28 +32,10 @@ void Level::loadLevel()
 	Demnach wird ausgewählt, welcher Ausschnitt geladen wird, und dann
 	werden die Sprites erstellt und in die Engine überreicht.
 */
+
+
 void Level::placeVisibleObjects(sf::Vector2f pos)
 {
-	int tilebreite = 20;
-	
-	if (	int (pos.x / tilebreite) > int (ViewPosition.x / tilebreite) ||
-			int (pos.x / tilebreite) < int (ViewPosition.x / tilebreite) )
-	{
-	
-		//checkArrays
-		//checkArrays
-		//checkArrays
-		//checkArrays
-		
-		// sf::Image kuh = ResourceManager::instance().getImage("Resources/test.png"));
-		
-		//ASprite Affe.(gib mir mein Bild);
-		
-		ViewPosition = pos;
-	}
-
-    
-    
     //button1.SetImage(ResourceManager<sf::Image>::instance().getResource("testbild"));
    
 	

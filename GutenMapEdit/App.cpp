@@ -16,6 +16,9 @@
 #include "App.h"
 #include "Input.h"
 
+using namespace ume;
+
+
 App::App()
 {
 	// Create main window Mode 0 = best supported
