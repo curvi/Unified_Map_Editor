@@ -12,7 +12,7 @@
 
 using namespace ume;
 
-ume::Spriteman::Spriteman ()
+Spriteman::Spriteman ()
 {
 	timesave = fpsSave = counter = 0;
 	
@@ -26,13 +26,13 @@ ume::Spriteman::Spriteman ()
 	selectedSprite = 0;
 }
 
-void ume::Spriteman::registerObjects(Menu* menuptr)
+void Spriteman::registerObjects(Menu* menuptr)
 {
 	menu = menuptr;
 }
 
 
-bool ume::Spriteman::editSprites(sf::RenderWindow &window)
+bool Spriteman::editSprites(sf::RenderWindow &window)
 {
 	bool usedInput = false;
 	if(Input::instance().heldDown(sf::Keyboard::Space))
@@ -62,15 +62,16 @@ bool ume::Spriteman::editSprites(sf::RenderWindow &window)
 				yOffset = ((**it)).getPosition().y + ((**it)).getOrigin().y
 							- Input::instance().getViewMousePosition().y;
 				selectedSprite = (*it);
+				
+				if( (*it)->getPosition().x == hoverRectangle.getPosition().x)
+					hoverRectangle.setOutlineColor(sf::Color::Transparent);
 			}
-			if(!Input::instance().heldDown(sf::Mouse::Left, true) &&
+			if( ! Input::instance().heldDown(sf::Mouse::Left, true) &&
 			   (*it) != selectedSprite )
 			{
 				hoverRectangle = shapeRealBorder((*it), hoverRectangle);
 				hoverRectangle.setOutlineColor(sf::Color::White);
 			}
-			if( (*it) == selectedSprite)
-				hoverRectangle.setOutlineColor(sf::Color::Transparent);
 		}
 	}
 	
@@ -106,7 +107,7 @@ bool ume::Spriteman::editSprites(sf::RenderWindow &window)
 
 
 
-void ume::Spriteman::scale(float x, float y)
+void Spriteman::scale(float x, float y)
 {
 	float distanceY = abs(y);
 	float distanceX = abs(x);
@@ -118,7 +119,7 @@ void ume::Spriteman::scale(float x, float y)
 
 
 
-void ume::Spriteman::rotate(float x, float y)
+void Spriteman::rotate(float x, float y)
 {
 	double dist = x*x + y*y;
 	dist = sqrt(dist);
@@ -138,7 +139,7 @@ void ume::Spriteman::rotate(float x, float y)
 
 
 
-void ume::Spriteman::updateSprites(sf::RenderWindow & window)
+void Spriteman::updateSprites(sf::RenderWindow & window)
 {
 	sf::Time timeElapsed = clock.restart();
 	frameTime = timeElapsed.asMilliseconds();
@@ -184,7 +185,7 @@ sf::RectangleShape Spriteman::shapeRealBorder(Sprite * sprite, sf::RectangleShap
 
 
 
-void ume::Spriteman::includeSprite(Sprite* figure)
+void Spriteman::includeSprite(Sprite* figure)
 {
 	listOfObjects.push_back(figure);
 	return;
@@ -196,7 +197,7 @@ void ume::Spriteman::includeSprite(Sprite* figure)
 
 //TODO: Auslagern von FPS
 
-std::string ume::Spriteman::printfps()
+std::string Spriteman::printfps()
 {
 	timesave += frameTime*10e-3;
 	
