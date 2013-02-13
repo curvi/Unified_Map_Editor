@@ -1,0 +1,409 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2787C5B616CBA3E80070BED2 /* App.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2787C59316CBA3E80070BED2 /* App.cpp */; };
+		2787C5B816CBA3E80070BED2 /* Input.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2787C59816CBA3E80070BED2 /* Input.cpp */; };
+		2787C5B916CBA3E80070BED2 /* ResourceManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2787C59A16CBA3E80070BED2 /* ResourceManager.cpp */; };
+		2787C5BA16CBA3E80070BED2 /* ResourcePath.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2787C59D16CBA3E80070BED2 /* ResourcePath.mm */; };
+		2787C5BB16CBA3E80070BED2 /* Viewmanager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2787C59E16CBA3E80070BED2 /* Viewmanager.cpp */; };
+		2787C5BC16CBA3E80070BED2 /* Level.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2787C5A116CBA3E80070BED2 /* Level.cpp */; };
+		2787C5BD16CBA3E80070BED2 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2787C5A316CBA3E80070BED2 /* main.cpp */; };
+		2787C5BE16CBA3E80070BED2 /* Menu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2787C5A416CBA3E80070BED2 /* Menu.cpp */; };
+		2787C5BF16CBA3E80070BED2 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2787C5A716CBA3E80070BED2 /* icon.png */; };
+		2787C5C016CBA3E80070BED2 /* nice_music.ogg in Resources */ = {isa = PBXBuildFile; fileRef = 2787C5A816CBA3E80070BED2 /* nice_music.ogg */; };
+		2787C5C116CBA3E80070BED2 /* player.png in Resources */ = {isa = PBXBuildFile; fileRef = 2787C5A916CBA3E80070BED2 /* player.png */; };
+		2787C5C216CBA3E80070BED2 /* sansation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2787C5AA16CBA3E80070BED2 /* sansation.ttf */; };
+		2787C5C316CBA3E80070BED2 /* Spriteman.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2787C5AB16CBA3E80070BED2 /* Spriteman.cpp */; };
+		2787C5C416CBA3E80070BED2 /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2787C5AE16CBA3E80070BED2 /* Player.cpp */; };
+		2787C5C516CBA3E80070BED2 /* Sprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2787C5B016CBA3E80070BED2 /* Sprite.cpp */; };
+		2787C5C616CBA3E80070BED2 /* tinyxml2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2787C5B316CBA3E80070BED2 /* tinyxml2.cpp */; };
+		2787C5C716CBA3E80070BED2 /* UnifiedMapEditor-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2787C5B516CBA3E80070BED2 /* UnifiedMapEditor-Info.plist */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		271EA84016B41DA40037D55E /* UnifiedMapEditor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UnifiedMapEditor.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2787C59316CBA3E80070BED2 /* App.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = App.cpp; sourceTree = "<group>"; };
+		2787C59416CBA3E80070BED2 /* App.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = App.h; sourceTree = "<group>"; };
+		2787C59816CBA3E80070BED2 /* Input.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Input.cpp; sourceTree = "<group>"; };
+		2787C59916CBA3E80070BED2 /* Input.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Input.h; sourceTree = "<group>"; };
+		2787C59A16CBA3E80070BED2 /* ResourceManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ResourceManager.cpp; sourceTree = "<group>"; };
+		2787C59B16CBA3E80070BED2 /* ResourceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResourceManager.h; sourceTree = "<group>"; };
+		2787C59C16CBA3E80070BED2 /* ResourcePath.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ResourcePath.hpp; sourceTree = "<group>"; };
+		2787C59D16CBA3E80070BED2 /* ResourcePath.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ResourcePath.mm; sourceTree = "<group>"; };
+		2787C59E16CBA3E80070BED2 /* Viewmanager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Viewmanager.cpp; sourceTree = "<group>"; };
+		2787C59F16CBA3E80070BED2 /* Viewmanager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Viewmanager.h; sourceTree = "<group>"; };
+		2787C5A116CBA3E80070BED2 /* Level.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Level.cpp; sourceTree = "<group>"; };
+		2787C5A216CBA3E80070BED2 /* Level.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Level.h; sourceTree = "<group>"; };
+		2787C5A316CBA3E80070BED2 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		2787C5A416CBA3E80070BED2 /* Menu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Menu.cpp; sourceTree = "<group>"; };
+		2787C5A516CBA3E80070BED2 /* Menu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Menu.h; sourceTree = "<group>"; };
+		2787C5A716CBA3E80070BED2 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		2787C5A816CBA3E80070BED2 /* nice_music.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; path = nice_music.ogg; sourceTree = "<group>"; };
+		2787C5A916CBA3E80070BED2 /* player.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player.png; sourceTree = "<group>"; };
+		2787C5AA16CBA3E80070BED2 /* sansation.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sansation.ttf; sourceTree = "<group>"; };
+		2787C5AB16CBA3E80070BED2 /* Spriteman.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Spriteman.cpp; sourceTree = "<group>"; };
+		2787C5AC16CBA3E80070BED2 /* Spriteman.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Spriteman.h; sourceTree = "<group>"; };
+		2787C5AE16CBA3E80070BED2 /* Player.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
+		2787C5AF16CBA3E80070BED2 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		2787C5B016CBA3E80070BED2 /* Sprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Sprite.cpp; sourceTree = "<group>"; };
+		2787C5B116CBA3E80070BED2 /* Sprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sprite.h; sourceTree = "<group>"; };
+		2787C5B316CBA3E80070BED2 /* tinyxml2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinyxml2.cpp; sourceTree = "<group>"; };
+		2787C5B416CBA3E80070BED2 /* tinyxml2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tinyxml2.h; sourceTree = "<group>"; };
+		2787C5B516CBA3E80070BED2 /* UnifiedMapEditor-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "UnifiedMapEditor-Info.plist"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		271EA83C16B41DA40037D55E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		271EA83416B41DA40037D55E = {
+			isa = PBXGroup;
+			children = (
+				2787C59216CBA3E80070BED2 /* UnifiedMapEditor */,
+				271EA84116B41DA40037D55E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		271EA84116B41DA40037D55E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				271EA84016B41DA40037D55E /* UnifiedMapEditor.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2787C59216CBA3E80070BED2 /* UnifiedMapEditor */ = {
+			isa = PBXGroup;
+			children = (
+				2787C5A316CBA3E80070BED2 /* main.cpp */,
+				2787C59316CBA3E80070BED2 /* App.cpp */,
+				2787C59416CBA3E80070BED2 /* App.h */,
+				2787C59716CBA3E80070BED2 /* Handlers */,
+				2787C5AB16CBA3E80070BED2 /* Spriteman.cpp */,
+				2787C5AC16CBA3E80070BED2 /* Spriteman.h */,
+				2787C5A416CBA3E80070BED2 /* Menu.cpp */,
+				2787C5A516CBA3E80070BED2 /* Menu.h */,
+				2787C5A016CBA3E80070BED2 /* Level */,
+				2787C5AD16CBA3E80070BED2 /* Sprites */,
+				2787C5A616CBA3E80070BED2 /* Resources */,
+				2787C5B216CBA3E80070BED2 /* tinyxml2 */,
+				2787C5B516CBA3E80070BED2 /* UnifiedMapEditor-Info.plist */,
+			);
+			path = UnifiedMapEditor;
+			sourceTree = "<group>";
+		};
+		2787C59716CBA3E80070BED2 /* Handlers */ = {
+			isa = PBXGroup;
+			children = (
+				2787C59816CBA3E80070BED2 /* Input.cpp */,
+				2787C59916CBA3E80070BED2 /* Input.h */,
+				2787C59A16CBA3E80070BED2 /* ResourceManager.cpp */,
+				2787C59B16CBA3E80070BED2 /* ResourceManager.h */,
+				2787C59C16CBA3E80070BED2 /* ResourcePath.hpp */,
+				2787C59D16CBA3E80070BED2 /* ResourcePath.mm */,
+				2787C59E16CBA3E80070BED2 /* Viewmanager.cpp */,
+				2787C59F16CBA3E80070BED2 /* Viewmanager.h */,
+			);
+			path = Handlers;
+			sourceTree = "<group>";
+		};
+		2787C5A016CBA3E80070BED2 /* Level */ = {
+			isa = PBXGroup;
+			children = (
+				2787C5A116CBA3E80070BED2 /* Level.cpp */,
+				2787C5A216CBA3E80070BED2 /* Level.h */,
+			);
+			path = Level;
+			sourceTree = "<group>";
+		};
+		2787C5A616CBA3E80070BED2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2787C5A716CBA3E80070BED2 /* icon.png */,
+				2787C5A816CBA3E80070BED2 /* nice_music.ogg */,
+				2787C5A916CBA3E80070BED2 /* player.png */,
+				2787C5AA16CBA3E80070BED2 /* sansation.ttf */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		2787C5AD16CBA3E80070BED2 /* Sprites */ = {
+			isa = PBXGroup;
+			children = (
+				2787C5AE16CBA3E80070BED2 /* Player.cpp */,
+				2787C5AF16CBA3E80070BED2 /* Player.h */,
+				2787C5B016CBA3E80070BED2 /* Sprite.cpp */,
+				2787C5B116CBA3E80070BED2 /* Sprite.h */,
+			);
+			path = Sprites;
+			sourceTree = "<group>";
+		};
+		2787C5B216CBA3E80070BED2 /* tinyxml2 */ = {
+			isa = PBXGroup;
+			children = (
+				2787C5B316CBA3E80070BED2 /* tinyxml2.cpp */,
+				2787C5B416CBA3E80070BED2 /* tinyxml2.h */,
+			);
+			path = tinyxml2;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		271EA83F16B41DA40037D55E /* UnifiedMapEditor */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 271EA85616B41DA40037D55E /* Build configuration list for PBXNativeTarget "UnifiedMapEditor" */;
+			buildPhases = (
+				271EA83B16B41DA40037D55E /* Sources */,
+				271EA83C16B41DA40037D55E /* Frameworks */,
+				271EA83D16B41DA40037D55E /* Resources */,
+				271EA83E16B41DA40037D55E /* Run Script */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = UnifiedMapEditor;
+			productName = GutenMapEdit;
+			productReference = 271EA84016B41DA40037D55E /* UnifiedMapEditor.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		271EA83616B41DA40037D55E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = "Michael Schwegel";
+			};
+			buildConfigurationList = 271EA83916B41DA40037D55E /* Build configuration list for PBXProject "UnifiedMapEditor" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 271EA83416B41DA40037D55E;
+			productRefGroup = 271EA84116B41DA40037D55E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				271EA83F16B41DA40037D55E /* UnifiedMapEditor */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		271EA83D16B41DA40037D55E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2787C5BF16CBA3E80070BED2 /* icon.png in Resources */,
+				2787C5C016CBA3E80070BED2 /* nice_music.ogg in Resources */,
+				2787C5C116CBA3E80070BED2 /* player.png in Resources */,
+				2787C5C216CBA3E80070BED2 /* sansation.ttf in Resources */,
+				2787C5C716CBA3E80070BED2 /* UnifiedMapEditor-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		271EA83E16B41DA40037D55E /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# This shell script simply copies required sfml dylibs/frameworks into the application bundle frameworks folder.\n# If you're using static libraries (which is not recommended) you should remove this script from your project.\n\n# Are we building a project that uses framework or dylibs ?\ncase \"$SFML_BINARY_TYPE\" in\n    DYLIBS)\n        frameworks=\"false\"\n        ;;\n    *)\n        frameworks=\"true\"\n        ;;\nesac\n\n# Echoes to stderr\nerror () # $* message to display\n{\n    echo $* 1>&2\n    exit 2\n}\n\nassert () # $1 is a boolean, $2...N is an error message\n{\n    if [ $# -lt 2 ]\n    then\n        error \"Internal error in assert : not enough args\"\n    fi\n\n    if [ $1 -ne 0 ]\n    then\n        shift\n        error \"$*\"\n    fi\n}\n\nforce_remove () # $1 is a path\n{\n    test $# -eq 1\n    assert $? \"force_remove() requires one parameter\"\n    rm -fr \"$1\"\n    assert $? \"couldn't remove $1\"\n}\n\ncopy () # $1 is a source, $2 is a destination\n{\n    test $# -eq 2\n    assert $? \"copy() requires two parameters\"\n    ditto \"$1\" \"$2\"\n    assert $? \"couldn't copy $1 to $2\"\n}\n\nrequire () # $1 is a SFML module like 'system' or 'audio'\n{\n    dest=\"$BUILT_PRODUCTS_DIR/$PRODUCT_NAME.app/Contents/Frameworks\"\n    \n    if [ -z \"$1\" ]\n    then\n        error \"require() requires one parameter!\"\n    else\n        # clean potentially old stuff\n        force_remove \"$dest/libsfml-$1.2.dylib\"\n        force_remove \"$dest/libsfml-$1-d.2.dylib\"\n        force_remove \"$dest/sfml-$1.framework\"\n    \n        # copy SFML libraries\n        if [ \"$frameworks\" = \"true\" ]\n        then\n            copy \"/Library/Frameworks/sfml-$1.framework\" \"$dest/sfml-$1.framework\"\n        elif [ $CONFIGURATION = \"Debug\" ] && [ $SFML_LINK_DYLIBS_SUFFIX_DEBUG != \"\" ]\n        then\n            copy \"/usr/local/lib/libsfml-$1-d.2.dylib\" \"$dest/libsfml-$1-d.2.dylib\"\n        else\n            copy \"/usr/local/lib/libsfml-$1.2.dylib\" \"$dest/libsfml-$1.2.dylib\"\n        fi\n        \n        if [ \"$1\" = \"audio\" ]\n        then\n            # copy sndfile framework too\n            copy \"/Library/Frameworks/sndfile.framework\" \"$dest/sndfile.framework\"\n        fi\n\n        if [ \"$1\" = \"graphics\" ]\n        then\n            # copy freetype framework too\n            copy \"/Library/Frameworks/freetype.framework\" \"$dest/freetype.framework\"\n        fi\n    fi\n}\n\nif [ -n \"$SFML_SYSTEM\" ]\nthen\n    require \"system\"\nfi\n\nif [ -n \"$SFML_AUDIO\" ]\nthen\n    require \"audio\"\nfi\n\nif [ -n \"$SFML_NETWORK\" ]\nthen\n    require \"network\"\nfi\n\nif [ -n \"$SFML_WINDOW\" ]\nthen\n    require \"window\"\nfi\n\nif [ -n \"$SFML_GRAPHICS\" ]\nthen\n    require \"graphics\"\nfi\n\n                ";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		271EA83B16B41DA40037D55E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2787C5B616CBA3E80070BED2 /* App.cpp in Sources */,
+				2787C5B816CBA3E80070BED2 /* Input.cpp in Sources */,
+				2787C5B916CBA3E80070BED2 /* ResourceManager.cpp in Sources */,
+				2787C5BA16CBA3E80070BED2 /* ResourcePath.mm in Sources */,
+				2787C5BB16CBA3E80070BED2 /* Viewmanager.cpp in Sources */,
+				2787C5BC16CBA3E80070BED2 /* Level.cpp in Sources */,
+				2787C5BD16CBA3E80070BED2 /* main.cpp in Sources */,
+				2787C5BE16CBA3E80070BED2 /* Menu.cpp in Sources */,
+				2787C5C316CBA3E80070BED2 /* Spriteman.cpp in Sources */,
+				2787C5C416CBA3E80070BED2 /* Player.cpp in Sources */,
+				2787C5C516CBA3E80070BED2 /* Sprite.cpp in Sources */,
+				2787C5C616CBA3E80070BED2 /* tinyxml2.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		271EA85416B41DA40037D55E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					/Library/Frameworks/,
+					"$(inherited)",
+				);
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/,
+					"$(inherited)",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					/usr/local/lib/,
+					"$(inherited)",
+				);
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"$(SFML_SYSTEM)",
+					"$(SFML_WINDOW)",
+					"$(SFML_GRAPHICS)",
+					"$(SFML_AUDIO)",
+					"$(SFML_NETWORK)",
+				);
+				SFML_AUDIO = "$(SFML_LINK_PREFIX)sfml-audio$(SFML_LINK_SUFFIX)";
+				SFML_BINARY_TYPE = FRAMEWORKS;
+				SFML_GRAPHICS = "$(SFML_LINK_PREFIX)sfml-graphics$(SFML_LINK_SUFFIX)";
+				SFML_LINK_DYLIBS_PREFIX = "-l";
+				SFML_LINK_DYLIBS_SUFFIX = "";
+				SFML_LINK_FRAMEWORKS_PREFIX = "-framework ";
+				SFML_LINK_FRAMEWORKS_SUFFIX = "";
+				SFML_LINK_PREFIX = "$(SFML_LINK_$(SFML_BINARY_TYPE)_PREFIX)";
+				SFML_LINK_SUFFIX = "$(SFML_LINK_$(SFML_BINARY_TYPE)_SUFFIX)";
+				SFML_NETWORK = "";
+				SFML_SYSTEM = "$(SFML_LINK_PREFIX)sfml-system$(SFML_LINK_SUFFIX)";
+				SFML_WINDOW = "$(SFML_LINK_PREFIX)sfml-window$(SFML_LINK_SUFFIX)";
+				SUPPORTED_PLATFORMS = macosx;
+			};
+			name = Debug;
+		};
+		271EA85516B41DA40037D55E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					/Library/Frameworks/,
+					"$(inherited)",
+				);
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include/,
+					"$(inherited)",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					/usr/local/lib/,
+					"$(inherited)",
+				);
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"$(SFML_SYSTEM)",
+					"$(SFML_WINDOW)",
+					"$(SFML_GRAPHICS)",
+					"$(SFML_AUDIO)",
+					"$(SFML_NETWORK)",
+				);
+				SFML_AUDIO = "$(SFML_LINK_PREFIX)sfml-audio$(SFML_LINK_SUFFIX)";
+				SFML_BINARY_TYPE = FRAMEWORKS;
+				SFML_GRAPHICS = "$(SFML_LINK_PREFIX)sfml-graphics$(SFML_LINK_SUFFIX)";
+				SFML_LINK_DYLIBS_PREFIX = "-l";
+				SFML_LINK_DYLIBS_SUFFIX = "";
+				SFML_LINK_FRAMEWORKS_PREFIX = "-framework ";
+				SFML_LINK_FRAMEWORKS_SUFFIX = "";
+				SFML_LINK_PREFIX = "$(SFML_LINK_$(SFML_BINARY_TYPE)_PREFIX)";
+				SFML_LINK_SUFFIX = "$(SFML_LINK_$(SFML_BINARY_TYPE)_SUFFIX)";
+				SFML_NETWORK = "";
+				SFML_SYSTEM = "$(SFML_LINK_PREFIX)sfml-system$(SFML_LINK_SUFFIX)";
+				SFML_WINDOW = "$(SFML_LINK_PREFIX)sfml-window$(SFML_LINK_SUFFIX)";
+				SUPPORTED_PLATFORMS = macosx;
+			};
+			name = Release;
+		};
+		271EA85716B41DA40037D55E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "UnifiedMapEditor/UnifiedMapEditor-Info.plist";
+				PRODUCT_NAME = UnifiedMapEditor;
+			};
+			name = Debug;
+		};
+		271EA85816B41DA40037D55E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "UnifiedMapEditor/UnifiedMapEditor-Info.plist";
+				PRODUCT_NAME = UnifiedMapEditor;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		271EA83916B41DA40037D55E /* Build configuration list for PBXProject "UnifiedMapEditor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				271EA85416B41DA40037D55E /* Debug */,
+				271EA85516B41DA40037D55E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		271EA85616B41DA40037D55E /* Build configuration list for PBXNativeTarget "UnifiedMapEditor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				271EA85716B41DA40037D55E /* Debug */,
+				271EA85816B41DA40037D55E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 271EA83616B41DA40037D55E /* Project object */;
+}

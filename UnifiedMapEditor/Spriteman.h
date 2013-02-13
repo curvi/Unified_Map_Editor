@@ -22,11 +22,11 @@
 #include "Menu.h"
 #include "Input.h"
 
-class ume::Menu;
-
 
 namespace ume {
-
+	
+class Menu;
+	
 	
 class Spriteman
 {

@@ -172,7 +172,7 @@ void ume::Spriteman::updateSprites(sf::RenderWindow & window)
 
 
 
-sf::ume::RectangleShape Spriteman::shapeRealBorder(Sprite * sprite, sf::RectangleShape shape)
+sf::RectangleShape Spriteman::shapeRealBorder(Sprite * sprite, sf::RectangleShape shape)
 {
 	shape.setPosition(sprite->getPosition().x, sprite->getPosition().y);
 	sf::Rect<float> border = sprite->getLocalBounds();

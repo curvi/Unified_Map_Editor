@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "271EA83F16B41DA40037D55E"
-               BuildableName = "GutenMapEdit.app"
-               BlueprintName = "GutenMapEdit"
-               ReferencedContainer = "container:GutenMapEdit.xcodeproj">
+               BuildableName = "UnifiedMapEditor.app"
+               BlueprintName = "UnifiedMapEditor"
+               ReferencedContainer = "container:UnifiedMapEditor.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "271EA83F16B41DA40037D55E"
-            BuildableName = "GutenMapEdit.app"
-            BlueprintName = "GutenMapEdit"
-            ReferencedContainer = "container:GutenMapEdit.xcodeproj">
+            BuildableName = "UnifiedMapEditor.app"
+            BlueprintName = "UnifiedMapEditor"
+            ReferencedContainer = "container:UnifiedMapEditor.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -52,9 +52,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "271EA83F16B41DA40037D55E"
-            BuildableName = "GutenMapEdit.app"
-            BlueprintName = "GutenMapEdit"
-            ReferencedContainer = "container:GutenMapEdit.xcodeproj">
+            BuildableName = "UnifiedMapEditor.app"
+            BlueprintName = "UnifiedMapEditor"
+            ReferencedContainer = "container:UnifiedMapEditor.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -70,9 +70,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "271EA83F16B41DA40037D55E"
-            BuildableName = "GutenMapEdit.app"
-            BlueprintName = "GutenMapEdit"
-            ReferencedContainer = "container:GutenMapEdit.xcodeproj">
+            BuildableName = "UnifiedMapEditor.app"
+            BlueprintName = "UnifiedMapEditor"
+            ReferencedContainer = "container:UnifiedMapEditor.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

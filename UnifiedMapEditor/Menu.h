@@ -18,9 +18,13 @@
 #include "Spriteman.h"
 #include "Sprites/Player.h"
 
-class ume::Spriteman;
+
 
 namespace ume {
+	
+	
+class Spriteman;
+	
 	
 
 class Menu

@@ -16,10 +16,12 @@
 
 #include "Viewmanager.h"
 
-class ume::Viewmanager;
 
 namespace ume {
 
+class Viewmanager;
+	
+	
 class Input
 {
 

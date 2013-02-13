@@ -120,7 +120,7 @@ bool Menu::update()
 					if(add && itemName == "Player")
 					{
 						std::cout <<"Player"<<std::endl;
-						ASprite * copy = new Player();
+						Sprite * copy = new Player();
 						copy->setPosition(450, 300);
 						spriteman->includeSprite(copy);
 					}

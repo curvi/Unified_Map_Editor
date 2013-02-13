@@ -3,7 +3,7 @@
 	271EA83616B41DA40037D55E /* Project object */ = {
 		activeBuildConfigurationName = Debug;
 		activeExecutable = 275E782F16B7ADEF00B8371E /* GutenMapEdit */;
-		activeTarget = 271EA83F16B41DA40037D55E /* GutenMapEdit */;
+		activeTarget = 271EA83F16B41DA40037D55E /* UnifiedMapEditor */;
 		codeSenseManager = 275E784016B7ADF100B8371E /* Code sense */;
 		executables = (
 			275E782F16B7ADEF00B8371E /* GutenMapEdit */,
@@ -16,7 +16,7 @@
 					20,
 					341,
 					20,
-					48.16259765625,
+					48,
 					43,
 					43,
 					20,
@@ -31,14 +31,14 @@
 					PBXFileDataSource_Target_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 381136367;
-			PBXWorkspaceStateSaveDate = 381136367;
+			PBXPerProjectTemplateStateSaveDate = 382444312;
+			PBXWorkspaceStateSaveDate = 382444312;
 		};
 		sourceControlManager = 275E783F16B7ADF100B8371E /* Source Control */;
 		userBuildSettings = {
 		};
 	};
-	271EA83F16B41DA40037D55E /* GutenMapEdit */ = {
+	271EA83F16B41DA40037D55E /* UnifiedMapEditor */ = {
 		activeExec = 0;
 		executables = (
 			275E782F16B7ADEF00B8371E /* GutenMapEdit */,
