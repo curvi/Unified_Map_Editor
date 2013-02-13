@@ -23,7 +23,6 @@
 		2787C5C416CBA3E80070BED2 /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2787C5AE16CBA3E80070BED2 /* Player.cpp */; };
 		2787C5C516CBA3E80070BED2 /* Sprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2787C5B016CBA3E80070BED2 /* Sprite.cpp */; };
 		2787C5C616CBA3E80070BED2 /* tinyxml2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2787C5B316CBA3E80070BED2 /* tinyxml2.cpp */; };
-		2787C5C716CBA3E80070BED2 /* UnifiedMapEditor-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2787C5B516CBA3E80070BED2 /* UnifiedMapEditor-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -216,7 +215,6 @@
 				2787C5C016CBA3E80070BED2 /* nice_music.ogg in Resources */,
 				2787C5C116CBA3E80070BED2 /* player.png in Resources */,
 				2787C5C216CBA3E80070BED2 /* sansation.ttf in Resources */,
-				2787C5C716CBA3E80070BED2 /* UnifiedMapEditor-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
