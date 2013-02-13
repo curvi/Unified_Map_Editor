@@ -7,15 +7,34 @@
 //
 
 #include "Level.h"
-#include <cstdio>
+
+#include "ResourcePath.hpp"
+#include "tinyxml2.h"
+
+#include <iostream>
+
 
 using namespace ume;
+
+Level::Level()
+{
+	tinyxml2::XMLDocument doc;
+	std::string a = resourcePath() + "testlevel.xml";
+	char* path = (char*)malloc( sizeof( char ) *(a.length() +1) );
+	std::string::traits_type::copy( path, a.c_str(), a.length() +1 );
+	
+	doc.LoadFile( path );
+	
+	//TODO: Einlesen und in map <ume::Sprite *> einfügen!
+	
+	std::cout << "Error ID: " << doc.ErrorID()  << std::endl;
+}
 
 
 void Level::loadLevel()
 {
-    //readFile while file.. x, y = playground [] []
-	
+    
+		
 	//... if "affe"
 	//	ASprite Berg12 = Berg(Position...);
 	//	Berg12 = tiles [x][y];

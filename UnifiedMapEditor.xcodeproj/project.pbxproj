@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2781D70B16CBCDFC00327BC3 /* testlevel.xml in Resources */ = {isa = PBXBuildFile; fileRef = 2781D70A16CBCDFC00327BC3 /* testlevel.xml */; };
 		2787C5B616CBA3E80070BED2 /* App.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2787C59316CBA3E80070BED2 /* App.cpp */; };
 		2787C5B816CBA3E80070BED2 /* Input.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2787C59816CBA3E80070BED2 /* Input.cpp */; };
 		2787C5B916CBA3E80070BED2 /* ResourceManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2787C59A16CBA3E80070BED2 /* ResourceManager.cpp */; };
@@ -27,6 +28,7 @@
 
 /* Begin PBXFileReference section */
 		271EA84016B41DA40037D55E /* UnifiedMapEditor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UnifiedMapEditor.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2781D70A16CBCDFC00327BC3 /* testlevel.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = testlevel.xml; sourceTree = "<group>"; };
 		2787C59316CBA3E80070BED2 /* App.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = App.cpp; sourceTree = "<group>"; };
 		2787C59416CBA3E80070BED2 /* App.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = App.h; sourceTree = "<group>"; };
 		2787C59816CBA3E80070BED2 /* Input.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Input.cpp; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 		2787C5A616CBA3E80070BED2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2781D70A16CBCDFC00327BC3 /* testlevel.xml */,
 				2787C5A716CBA3E80070BED2 /* icon.png */,
 				2787C5A816CBA3E80070BED2 /* nice_music.ogg */,
 				2787C5A916CBA3E80070BED2 /* player.png */,
@@ -211,6 +214,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2781D70B16CBCDFC00327BC3 /* testlevel.xml in Resources */,
 				2787C5BF16CBA3E80070BED2 /* icon.png in Resources */,
 				2787C5C016CBA3E80070BED2 /* nice_music.ogg in Resources */,
 				2787C5C116CBA3E80070BED2 /* player.png in Resources */,

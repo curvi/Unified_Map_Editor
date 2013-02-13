@@ -19,6 +19,7 @@
 #include "Spriteman.h"
 #include "Menu.h"
 #include "Viewmanager.h"
+#include "Level/Level.h"
 
 namespace ume {
 
@@ -35,6 +36,7 @@ public:
 	Viewmanager viewman;
 	ume::Spriteman spritey;
 	Menu menu;
+	Level level;
 
 	
 private:

@@ -57,6 +57,8 @@ App::~App()
 int App::run()
 {
 	
+	level.loadLevel();
+	
 	// Start the game loop
     while (window.isOpen())
     {

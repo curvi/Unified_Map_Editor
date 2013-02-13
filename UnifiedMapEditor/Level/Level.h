@@ -23,7 +23,8 @@ namespace ume {
 class Level {
 
 public:
-  
+	
+  	Level();
     void loadLevel();
 	void placeVisibleObjects(sf::Vector2f pos);
 

@@ -24,8 +24,9 @@ Player::Player() : Sprite()
 
 }
 
-Player::Player(sf::Texture pic) : Sprite(pic)
+Player::Player(std::string path) : Sprite(path)
 {
+	texturePath = path;
 	Player();
 }
 

@@ -27,11 +27,12 @@ Sprite::Sprite()
 
 
 
-Sprite::Sprite(sf::Texture pic) : sf::Sprite(pic)
+Sprite::Sprite(std::string path) : sf::Sprite(pictures)
 {
 	//Nur fürs Debugging gleich laden! Dann eigen funkt für be-/entladen
-	pictures = pic;
-
+	pictures = ResourceManager::instance().getTexture(path);
+	texturePath = path;
+	
 	//Standard Values
 	numberOfFrames = 1;
 }

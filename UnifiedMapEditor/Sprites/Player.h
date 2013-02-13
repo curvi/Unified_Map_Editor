@@ -20,7 +20,7 @@ public:
     
     std::string getClass(){return "Player";}
     Player();
-    Player(sf::Texture pic);
+    Player(std::string);
 	void update(float frameTime);
     
 private:
@@ -30,7 +30,6 @@ private:
 
 }
 
-//Muss sich selbst das sf::Image zuteilen fürs Ändern
 
 
 #endif

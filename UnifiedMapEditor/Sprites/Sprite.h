@@ -22,7 +22,7 @@ public:
 	
 	virtual std::string getClass(){return "Sprite";}
 	Sprite();
-	Sprite(sf::Texture pic);
+	Sprite(std::string tex);
 	
 	sf::Vector2i Speed;
 	virtual void move(float frameTime);
@@ -40,8 +40,10 @@ protected:
 	
 	//Animation
 	sf::Texture pictures;
+	std::string texturePath;
 	int animationFrame, numberOfFrames;
 	float animationTime, sampleTime;
+	
 	
 	
 };
