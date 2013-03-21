@@ -40,20 +40,19 @@ void Input::update(sf::Event event)
 	{
 		mousePosition.x = event.mouseMove.x;
 		mousePosition.y = event.mouseMove.y;
-		//std::cout << mousePosition.x << " " << mousePosition.y << std::endl;
 		return;
 	}
 	
 	//KEYBOARD
 	if(event.type == sf::Event::KeyPressed)
 	{
-		pressedKeyboard.insert(event.key.code); //Single Event
+		pressedKeyboard.insert(event.key.code); //single event
 		down.insert(event.key.code);
 		return;
 	}
 	else if (event.type == sf::Event::KeyReleased)
 	{
-		releasedKeyboard.insert(event.key.code);	//Single Event
+		releasedKeyboard.insert(event.key.code);	//single event
 		down.erase(event.key.code);
 		return;
 	}
@@ -61,20 +60,20 @@ void Input::update(sf::Event event)
 	//MOUSE
 	else if(event.type == sf::Event::MouseButtonPressed)
 	{
-		pressedMouse.insert(event.mouseButton.button);	//Single Event
+		pressedMouse.insert(event.mouseButton.button);	//single event
 		mouseDown.insert(event.mouseButton.button);
 		return;
 		
 	}
 	else if (event.type == sf::Event::MouseButtonReleased)
 	{
-		releasedMouse.insert(event.mouseButton.button);	//Single Event
+		releasedMouse.insert(event.mouseButton.button);	//single event
 		mouseDown.erase(event.mouseButton.button);
 		return;
 	}
 	else if (event.type == sf::Event::MouseWheelMoved)
 	{
-		mouseWheelClicks = event.mouseWheel.delta; // Zahl der Zacken.
+		mouseWheelClicks = event.mouseWheel.delta; // number of clicks
 	}
 	
 }

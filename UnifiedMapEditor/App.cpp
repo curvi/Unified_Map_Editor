@@ -44,6 +44,8 @@ App::App()
 	menu.registerSpriteMan(&spritey);
 	spritey.registerObjects(&menu);
 	viewman.registerWindow(window);
+	
+	
 }
 
 
@@ -57,7 +59,7 @@ App::~App()
 int App::run()
 {
 	
-	level.loadLevel();
+	level.loadLevel(&spritey);
 	
 	// Start the game loop
     while (window.isOpen())
@@ -71,7 +73,7 @@ int App::run()
 		if (!viewman.setGameView(window))
 		{	if(!menu.update())
 			{	spritey.editSprites(window); }}
-		
+		level.act();
 		
 				
 		spritey.updateSprites(window);

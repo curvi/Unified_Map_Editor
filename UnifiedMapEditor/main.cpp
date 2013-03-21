@@ -17,8 +17,6 @@
 
 
 #include "App.h"
-#include <assert.h>
-
 
 
 
@@ -26,11 +24,13 @@ int main(int, char const**)
 {
 	
 	ume::App* app = new ume::App();
-	assert(NULL != app && "main() Can't create App");
-	
-	
+	if(NULL == app)
+	{
+		printf("main() Can't create App");
+		EXIT_FAILURE;
+	}
+
 	int exitCode = app->run();
-	
 	
 	delete app;
 	app = NULL;

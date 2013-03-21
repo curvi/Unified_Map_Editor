@@ -40,19 +40,20 @@ public:
 	bool editSprites(sf::RenderWindow &window);
 
 	std::string printfps();
-    void includeSprite(ume::Sprite* Figure);
-	void loadMenu();
+    void includeSprite(ume::Sprite* addSprite);
 
+	std::list<Sprite*> getListOfObjects() {return listOfObjects;}
 	
 private:
 	
 	std::list<Sprite*> listOfObjects;	
 		
+	//editor mechanics
 	Sprite* selectedSprite;
 	sf::RectangleShape selectionRectangle;
 	sf::RectangleShape hoverRectangle;
 	
-	//Geometric Helper Functions
+	//geometric helper functions
 	sf::RectangleShape shapeRealBorder(Sprite * sprite, sf::RectangleShape shape);
 	void rotate(float x, float y);
 	void scale(float x, float y);

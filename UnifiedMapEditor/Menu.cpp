@@ -50,6 +50,8 @@ Menu::Menu()
 	sf::Text * play = new sf::Text("Player", font, 25);
 	menuList.push_back(play);
 	
+	sf::Text * del = new sf::Text("Delete", font, 25);
+	menuList.push_back(del);
 	
 	int pos = 10;
 	std::list<sf::Text*>::iterator it;
@@ -61,12 +63,6 @@ Menu::Menu()
 	}
 }
 
-
-
-void Menu::registerSpriteMan(Spriteman * spritey)
-{
-	spriteman = spritey;
-}
 
 
 
@@ -95,8 +91,7 @@ bool Menu::update()
 	std::list<sf::Text*>::iterator it;
 	for (it = menuList.begin(); it != menuList.end(); ++it)
 	{
-		
-		
+			
 		std::string itemName = ((**it)).getString();
 		
 		if(Input::instance().pressed(sf::Mouse::Left, true))
@@ -111,6 +106,8 @@ bool Menu::update()
 				
 				if(itemName == "Add")
 					add = true;
+				else if(itemName == "Delete")
+					del = true;
 				else if (itemName == "Scale")
 					scale = true;
 				else if (itemName == "Rotate")
@@ -154,6 +151,13 @@ void Menu::draw(sf::RenderWindow &window)
 			else
 				((**it)).setColor(sf::Color::White);
 		}
+		else if (itemName == "Delete")
+		{
+			if (del)
+				((**it)).setColor(sf::Color::Green);
+			else
+				((**it)).setColor(sf::Color::White);
+		}
 		else if (itemName == "Rotate")
 		{
 			if (rotate)
@@ -174,6 +178,10 @@ void Menu::draw(sf::RenderWindow &window)
 
 
 
+void Menu::registerSpriteMan(Spriteman * spritey)
+{
+	spriteman = spritey;
+}
 
 
 

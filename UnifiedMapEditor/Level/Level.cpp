@@ -9,55 +9,181 @@
 #include "Level.h"
 
 #include "ResourcePath.hpp"
-#include "tinyxml2.h"
+#include <sstream>
 
 #include <iostream>
+
+
+// Structure of the XML file:
+// - Element "PLAYFIELD" the root Element, which is the
+//                       FirstChildElement of the Document
+// - - Element "Sprite"   child of the root PLAY Element
+// - - - Text            child of the TITLE Element
 
 
 using namespace ume;
 
 Level::Level()
 {
-	tinyxml2::XMLDocument doc;
-	std::string a = resourcePath() + "testlevel.xml";
-	char* path = (char*)malloc( sizeof( char ) *(a.length() +1) );
-	std::string::traits_type::copy( path, a.c_str(), a.length() +1 );
-	
-	doc.LoadFile( path );
-	
-	//TODO: Einlesen und in map <ume::Sprite *> einfügen!
-	
-	std::cout << "Error ID: " << doc.ErrorID()  << std::endl;
+
+
 }
 
 
-void Level::loadLevel()
+void Level::loadLevel(ume::Spriteman* spritey)
 {
-    
-		
-	//... if "affe"
-	//	ASprite Berg12 = Berg(Position...);
-	//	Berg12 = tiles [x][y];
-    
-	// gleich mit Tiles
-	// Affe = monsterArray[x][y];
+    spriteman = spritey;
 	
-    return;
+	tinyxml2::XMLDocument doc;
+	std::string tmp = resourcePath() + "testlevel.xml";
+	char* path = (char*)malloc( sizeof( char ) *(tmp.length() +1) );
+	std::string::traits_type::copy( path, tmp.c_str(), tmp.length() +1 );
+	
+	if (! doc.LoadFile(path) == tinyxml2::XML_SUCCESS)
+	{
+		std::cout<< "Loading error" <<std::endl;
+		return;
+	}
+	
+	tinyxml2::XMLElement * info = doc.FirstChildElement( "info" );
+	const char* title = info->FirstChildElement( "title" )->FirstChild()->ToText()->Value();
+	const char* author = info->FirstChildElement( "author" )->FirstChild()->ToText()->Value();
+	const char* version = info->FirstChildElement( "version" )->FirstChild()->ToText()->Value();
+	printf("Title: %s\nAuthor: %s\nVersion: %s\n", title,author,version);
+	info = 0;
+	//^ READ Info
+	
+	
+	tinyxml2::XMLElement * sprites = doc.FirstChildElement("playfield")->FirstChildElement("sprite");
+	
+	while (sprites)
+	{
+		//Neues Sprite erstellen
+		//TODO: switch type case: "Player", case:"Monster" ...
+		ume::Sprite * sprite = new ume::Player();
+			
+		float posx = getXMLData(sprites, "posx");
+		float posy = getXMLData(sprites, "posy");
+		std::cout << "x: " << posx << std::endl << "y: " << posy << std::endl;		
+		sprite->setPosition(posx,posy);
+		
+		float scalex = getXMLData(sprites, "scalex");
+		float scaley = getXMLData(sprites, "scaley");	
+		sprite->setScale(scalex, scaley);
+		
+		float rot = getXMLData(sprites,"rotation");	
+		sprite->setRotation(rot);
+		
+		
+		//place sprite on field
+		spriteman->includeSprite(sprite);
+		
+		sprites = sprites->NextSiblingElement("sprite");
+	}
+		
+	return;
 }
 
 
+void Level::saveLevel()
+{
+	std::cout<< "Saving Level" <<std::endl;
+	
+	tinyxml2::XMLDocument doc;
+	
+	std::string tmp = resourcePath() + "testlevel.xml";
+	char* path = (char*)malloc( sizeof( char ) *(tmp.length() +1) );
+	std::string::traits_type::copy( path, tmp.c_str(), tmp.length() +1 );
+	
+	std::list<Sprite*> playfield = spriteman->getListOfObjects();
+	
+	
+	tinyxml2::XMLElement * fieldElement = 0;
+	if (doc.LoadFile(path) == tinyxml2::XML_SUCCESS)
+	{
+		if((fieldElement = doc.FirstChildElement("playfield")))
+			fieldElement->DeleteChildren();
+	}
+	else
+	{
+		fieldElement = doc.NewElement("playfield");
+		doc.LinkEndChild(fieldElement);
+	}
+	
+	
+	std::list<Sprite*>::iterator it;
+	for (it = playfield.begin(); it != playfield.end(); ++it)
+	{
+		//SPRITE
+		tinyxml2::XMLNode *spriteNode = doc.NewElement("sprite");
+		
+		sf::Vector2f posVector = (**it).getPosition();
+		setXMLData(spriteNode, "posx",posVector.x);
+		setXMLData(spriteNode, "posy",posVector.y);
+		
+		sf::Vector2f scaling = (**it).getScale();
+		setXMLData(spriteNode, "scalex", scaling.x);
+		setXMLData(spriteNode, "scaley", scaling.y);
+		
+		setXMLData(spriteNode, "rotation", (**it).getRotation());
+		
+		
+		
+		fieldElement->InsertEndChild(spriteNode);
+		//SPRITE
+		
+	}//all sprites on the field
+	
+	doc.SaveFile(path);
+	
+}
+
+
+
+
+
+
+
+void Level::act(/* sf::Vector2f pos*/ )
+{
+	if( Input::instance().pressed(sf::Keyboard::S) )
+		saveLevel();	
 /*
 	Hier kommt die Info rein, wo sich der Spieler befindet.
 	Demnach wird ausgewählt, welcher Ausschnitt geladen wird, und dann
 	werden die Sprites erstellt und in die Engine überreicht.
-*/
-
-
-void Level::placeVisibleObjects(sf::Vector2f pos)
-{
-    //button1.SetImage(ResourceManager<sf::Image>::instance().getResource("testbild"));
-   
-	
-	//Engine::instance().includeSprite(&one);
+*/	
 	return;
 }
+
+
+
+
+void Level::setXMLData(tinyxml2::XMLNode* spriteNode, const char* name, float number)
+{
+	char chars [100];
+	std::sprintf(chars,"%f",number);
+	tinyxml2::XMLDocument* doc = spriteNode->GetDocument();
+	 
+	tinyxml2::XMLElement* element = doc->NewElement(name);
+		
+	tinyxml2::XMLText* value = doc->NewText(chars);
+	
+	element->InsertFirstChild(value);
+	spriteNode->InsertEndChild(element);
+}
+
+
+
+float Level::getXMLData(tinyxml2::XMLElement * el, const char * chars)
+{
+	const char* value = el->FirstChildElement(chars)//
+	->FirstChild()->ToText()->Value();
+	std::stringstream stream(value);
+	float a;
+	stream >> a;
+	return a;
+}
+
+
+

@@ -19,10 +19,8 @@ Spriteman::Spriteman ()
 	selectionRectangle.setFillColor(sf::Color::Transparent);
 	selectionRectangle.setOutlineThickness(1);
 	selectionRectangle.setOutlineColor(sf::Color::Red);
-	
 	hoverRectangle = selectionRectangle;
 	hoverRectangle.setOutlineColor(sf::Color::White);
-	
 	selectedSprite = 0;
 }
 
@@ -56,6 +54,11 @@ bool Spriteman::editSprites(sf::RenderWindow &window)
 		{
 			if(Input::instance().pressed(sf::Mouse::Left, true))
 			{
+				if(menu->del) //TEST USE ONLY!
+				{	it = listOfObjects.erase(it--);
+					menu->del = false;
+					return true;}
+				
 				firstClick = true;
 				xOffset = ((**it)).getPosition().x + ((**it)).getOrigin().x
 							- Input::instance().getViewMousePosition().x;
@@ -66,6 +69,7 @@ bool Spriteman::editSprites(sf::RenderWindow &window)
 				if( (*it)->getPosition().x == hoverRectangle.getPosition().x)
 					hoverRectangle.setOutlineColor(sf::Color::Transparent);
 			}
+			
 			if( ! Input::instance().heldDown(sf::Mouse::Left, true) &&
 			   (*it) != selectedSprite )
 			{
@@ -103,7 +107,7 @@ bool Spriteman::editSprites(sf::RenderWindow &window)
 		}
 	}
 	return usedInput;
-} //Update ^
+} //edit sprites ^
 
 
 
@@ -151,16 +155,27 @@ void Spriteman::updateSprites(sf::RenderWindow & window)
 	//Vom View Manager hierher übergeben oda so
 	
 	
+	//TODO: remove flag within sprite to then remove them here
+	//std::list::remove_if
+	
+	// delete selected object within loop
+	// it = listOfObjects.erase(it--)
+
 	std::list<Sprite*>::iterator it;
-	for (it = listOfObjects.begin(); it != listOfObjects.end(); ++it)
+	for (it = listOfObjects.begin(); it != listOfObjects.end();)
 	{
-		//if((**it).checkIfInSight(viewman))
-		{
-			//listOfObjects.erase(it);
-		}
+		/* if ((**it).checkIfInSight(viewman))
+		 {
+		*/ 
+		
 		(**it).move(frameTime);
 		(**it).update(frameTime);
 		window.draw((**it));
+		
+		++it;
+		/* } else
+		 it = liste.erase(it);
+		*/
 	}
 	
 	if(selectedSprite != 0)
@@ -185,9 +200,9 @@ sf::RectangleShape Spriteman::shapeRealBorder(Sprite * sprite, sf::RectangleShap
 
 
 
-void Spriteman::includeSprite(Sprite* figure)
+void Spriteman::includeSprite(Sprite* addSprite)
 {
-	listOfObjects.push_back(figure);
+	listOfObjects.push_back(addSprite);
 	return;
 }
 
@@ -200,7 +215,6 @@ void Spriteman::includeSprite(Sprite* figure)
 std::string Spriteman::printfps()
 {
 	timesave += frameTime*10e-3;
-	
 	counter ++;
     if (counter >= 100)
     {
@@ -208,7 +222,6 @@ std::string Spriteman::printfps()
         timesave = 0;
         counter = 0;
     }
-    
 	std::stringstream stream;
 	stream << "fps: " << int(fpsSave);
 	std::string erg = "fps: --";

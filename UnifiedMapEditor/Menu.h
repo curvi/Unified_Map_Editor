@@ -38,7 +38,7 @@ public:
 	bool update();
 	void draw(sf::RenderWindow &window);
 
-	bool add, rotate, remove, scale;
+	bool add, del, rotate, remove, scale;
 
 	
 

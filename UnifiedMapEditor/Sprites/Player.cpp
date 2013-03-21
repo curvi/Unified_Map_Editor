@@ -14,7 +14,7 @@ using namespace ume;
 Player::Player() : Sprite()
 {
 	numberOfFrames = 4;
-	sampleTime = 150;
+	sampleTime = 120;
 	
 	sf::Texture pic = ResourceManager::instance().getTexture("player.png");
 	pictures = pic;

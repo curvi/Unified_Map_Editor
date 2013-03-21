@@ -1,33 +1,17 @@
 <?xml version="1.0"?>
-<!DOCTYPE PLAY SYSTEM "play.dtd">
 
-<PLAYFIELD>
-<TITLE>Testlevel</TITLE>
-<AUTHOR>Mike</AUTHOR>
-<VERSION>0.0</VERSION>
-
-
-
-<SPRITE>
-
-<TYPE>Player</TYPE>
-<TEXTURE>player.png</TEXTURE>
-<POSITIONX>120</POSITIONX>
-<POSITIONY>20</POSITIONY>
-
-</SPRITE>
-
-
-
-
-
-<BACKDROPGROUP>
-
-</BACKDROPGROUP>
-
-
-
-
-
-
-</PLAYFIELD>
+<info>
+<title>Testlevel</title>
+<author>Mike</author>
+<version>0.0</version>
+</info>
+	
+<playfield>
+	<sprite>
+        <posx>530.000000</posx>
+        <posy>216.000000</posy>
+        <scalex>0.630000</scalex>
+        <scaley>1.360000</scaley>
+        <rotation>17.240034</rotation>
+    </sprite>
+</playfield>
