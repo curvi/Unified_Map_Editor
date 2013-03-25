@@ -1,15 +1,7 @@
 //
 //  App.cpp
-//  GutenMapEdit
+//  
 //
-//  Created by Michael Schwegel on 05.02.13.
-//  Copyright (c) 2013 Michael Schwegel. All rights reserved.
-//
-
-#pragma mark -
-// TODO: Hide Menu -> Editor Mode / Game Mode
-// TODO: 
-#pragma mark -
 
 
 
@@ -39,66 +31,29 @@ App::App()
     }
     window.setIcon(icon.getSize().x, icon.getSize().y, icon.getPixelsPtr());
 */
-	
-	Input::instance().registerObjects(&viewman);
-	menu.registerSpriteMan(&spritey);
-	spritey.registerObjects(&menu);
-	viewman.registerWindow(window);
-	
-	
+
 }
-
-
-App::~App()
-{
-	
-}
-
 
 
 int App::run()
 {
 	
-	level.loadLevel(&spritey);
-	
 	// Start the game loop
     while (window.isOpen())
     {
-		
-		Input::instance().poll(window);
-        	
 		window.clear();
 		
-		//Input Queue
-		if (!viewman.setGameView(window))
-		{	if(!menu.update())
-			{	spritey.editSprites(window); }}
-		level.act();
-		
-				
-		spritey.updateSprites(window);
+		statemanager.update();
+		statemanager.draw(&window);
 
-		
-		window.setView(window.getDefaultView());
-		menu.draw(window);
-		
-		
 		window.display();
 
-		
-		Input::instance().clearUnique();
-		
 		//sf::sleep(sf::seconds(0.0001f));
-	
-	}//Loop ^
+	}
 	
 	
 	return EXIT_SUCCESS;
 }
-
-
-
-
 
 
 

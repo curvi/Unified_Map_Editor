@@ -12,19 +12,21 @@
 
 using namespace ume;
 
-void Input::poll(sf::RenderWindow & window)
+void Input::poll(sf::RenderWindow * window)
 {
+	clearUnique();
+	
 	mouseWheelClicks = 0;
 	
 	// Process events
 	sf::Event event;
-	while (window.pollEvent(event))
+	while (window->pollEvent(event))
 	{
 		// Espace pressed, close Window, Super+Q : exit
 		if (event.type == sf::Event::Closed ||
 			(event.type == sf::Event::KeyPressed &&
 			 event.key.code == sf::Keyboard::Escape)  )
-		{ window.close(); }
+		{ window->close(); }
 		
 		update(event);
 		
@@ -128,11 +130,6 @@ bool Input::heldDown(int value, bool mouse)
 	else return true;	
 }
 
-
-sf::Vector2f Input::getViewMousePosition()
-{
-	return viewmanager->transformPointToView(mousePosition);
-}
 
 
 

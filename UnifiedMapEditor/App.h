@@ -10,16 +10,11 @@
 #ifndef __GutenMapEdit__App__
 #define __GutenMapEdit__App__ 1
 
-#include <iostream>
 
-#include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
 
 #include "Input.h"
-#include "Spriteman.h"
-#include "Menu.h"
-#include "Viewmanager.h"
-#include "Level/Level.h"
+#include "Statemanager.h"
 
 namespace ume {
 
@@ -29,22 +24,15 @@ class App
 public:
 	
 	App();
-	~App();
-	
 	int run();
 	
-	Viewmanager viewman;
-	ume::Spriteman spritey;
-	Menu menu;
-	Level level;
-
 	
 private:
 	
+	Statemanager statemanager;
 	sf::RenderWindow window;
 	
 };
-
 
 }
 

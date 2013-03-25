@@ -15,28 +15,19 @@
 #include <SFML/Graphics.hpp>
 
 #include "Input.h"
-#include "Spriteman.h"
-#include "Sprites/Player.h"
-
-
+#include "ResourceManager.h"
 
 namespace ume {
 	
-	
-class Spriteman;
-	
-	
-
 class Menu
 {
 
 public:
 	
 	Menu();
-	void registerSpriteMan(ume::Spriteman * spritey);
 	
 	bool update();
-	void draw(sf::RenderWindow &window);
+	void draw(sf::RenderWindow* );
 
 	bool add, del, rotate, remove, scale;
 
@@ -46,7 +37,7 @@ private:
 
 	sf::Font font;
 	std::list<sf::Text*> menuList;
-	ume::Spriteman* spriteman;
+
 	
 
 };

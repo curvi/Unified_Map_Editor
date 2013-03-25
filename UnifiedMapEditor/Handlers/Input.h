@@ -14,12 +14,8 @@
 #include <set>
 #include <SFML/Graphics.hpp>
 
-#include "Viewmanager.h"
-
 
 namespace ume {
-
-class Viewmanager;
 	
 	
 class Input
@@ -27,8 +23,7 @@ class Input
 
 public:
 	
-	void registerObjects(ume::Viewmanager* v){viewmanager = v;}
-	void poll(sf::RenderWindow & window);
+	void poll(sf::RenderWindow *);
 	
 	void update(sf::Event event);
 	bool heldDown	(int value, bool mouse = false);
@@ -37,7 +32,6 @@ public:
 	int mouseWheel(){return mouseWheelClicks;}
 	void clearUnique ();
 	sf::Vector2i getMousePosition(){return mousePosition;}
-	sf::Vector2f getViewMousePosition();
 	
 private:
 	
@@ -49,8 +43,6 @@ private:
 	std::set<int> releasedKeyboard;
 	sf::Vector2i mousePosition;
 	int mouseWheelClicks;
-
-	ume::Viewmanager* viewmanager;
 	
 	
 	/* Singleton */

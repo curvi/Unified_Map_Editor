@@ -30,10 +30,8 @@ Level::Level()
 }
 
 
-void Level::loadLevel(ume::Spriteman* spritey)
-{
-    spriteman = spritey;
-	
+void Level::loadLevel(ume::Spritemanager* spritemanager)
+{	
 	tinyxml2::XMLDocument doc;
 	std::string tmp = resourcePath() + "testlevel.xml";
 	char* path = (char*)malloc( sizeof( char ) *(tmp.length() +1) );
@@ -64,7 +62,6 @@ void Level::loadLevel(ume::Spriteman* spritey)
 			
 		float posx = getXMLData(sprites, "posx");
 		float posy = getXMLData(sprites, "posy");
-		std::cout << "x: " << posx << std::endl << "y: " << posy << std::endl;		
 		sprite->setPosition(posx,posy);
 		
 		float scalex = getXMLData(sprites, "scalex");
@@ -76,7 +73,7 @@ void Level::loadLevel(ume::Spriteman* spritey)
 		
 		
 		//place sprite on field
-		spriteman->includeSprite(sprite);
+		spritemanager->includeSprite(sprite);
 		
 		sprites = sprites->NextSiblingElement("sprite");
 	}
@@ -85,7 +82,7 @@ void Level::loadLevel(ume::Spriteman* spritey)
 }
 
 
-void Level::saveLevel()
+void Level::saveLevel(ume::Spritemanager* spritemanager)
 {
 	std::cout<< "Saving Level" <<std::endl;
 	
@@ -95,7 +92,7 @@ void Level::saveLevel()
 	char* path = (char*)malloc( sizeof( char ) *(tmp.length() +1) );
 	std::string::traits_type::copy( path, tmp.c_str(), tmp.length() +1 );
 	
-	std::list<Sprite*> playfield = spriteman->getListOfObjects();
+	std::list<Sprite*> playfield = spritemanager->getListOfObjects();
 	
 	
 	tinyxml2::XMLElement * fieldElement = 0;
@@ -137,26 +134,6 @@ void Level::saveLevel()
 	doc.SaveFile(path);
 	
 }
-
-
-
-
-
-
-
-void Level::act(/* sf::Vector2f pos*/ )
-{
-	if( Input::instance().pressed(sf::Keyboard::S) )
-		saveLevel();	
-/*
-	Hier kommt die Info rein, wo sich der Spieler befindet.
-	Demnach wird ausgewählt, welcher Ausschnitt geladen wird, und dann
-	werden die Sprites erstellt und in die Engine überreicht.
-*/	
-	return;
-}
-
-
 
 
 void Level::setXMLData(tinyxml2::XMLNode* spriteNode, const char* name, float number)

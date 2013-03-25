@@ -5,6 +5,12 @@
 <author>Mike</author>
 <version>0.0</version>
 </info>
+
+<pictures>
+	<path>player.png</path>
+	<path>icon.png</path>
+</pictures>
+
 	
 <playfield>
 	<sprite>

@@ -22,20 +22,21 @@ class Viewmanager
 	
 public:
 	
-	void registerWindow(sf::RenderWindow & win);
-	bool setGameView(sf::RenderWindow & win);
-	sf::Vector2f transformPointToView(sf::Vector2i);
+	Viewmanager();
+	bool update (sf::RenderWindow *);
+	sf::Vector2f transformPointToView (sf::Vector2i);
 	
 	
 private:
 	
-	sf::Vector2u frameSize;
 	sf::View gameView;
+	sf::Vector2u frameSize;
 	sf::Vector2i mouseOffset;
 	float zoomFactor;
 	
 	bool inputLock;
-	//sf::Vector2f transformPointToView (sf::Vector2f);
+	bool firstExecution;
+	
 };
 
 }

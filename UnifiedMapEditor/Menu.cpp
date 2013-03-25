@@ -17,12 +17,13 @@ using namespace ume;
 Menu::Menu()
 {
 	this->add = false;
+	this->del = false;
 	this->rotate = false;
 	this->scale = false;
-	
-	
+		
 	/*
 	//TODO: Menu Background
+	 
 	sf::Image img;
 	img.create(200, 890, sf::Color(150,150,150));
 	img.createMaskFromColor(sf::Color(200,200,200),100);
@@ -38,7 +39,8 @@ Menu::Menu()
 	sf::Text * text = new sf::Text("Add", font, 25);
 	menuList.push_back(text);
 	
-	//delete
+	sf::Text * del = new sf::Text("Delete", font, 25);
+	menuList.push_back(del);
 	
 	sf::Text * text1 = new sf::Text("Rotate", font, 25);
 	menuList.push_back(text1);
@@ -46,12 +48,11 @@ Menu::Menu()
 	sf::Text * text2 = new sf::Text("Scale", font, 25);
 	menuList.push_back(text2);
 	
+	sf::Text * cleary = new sf::Text("Clear", font, 25);
+	menuList.push_back(cleary);
 	
 	sf::Text * play = new sf::Text("Player", font, 25);
 	menuList.push_back(play);
-	
-	sf::Text * del = new sf::Text("Delete", font, 25);
-	menuList.push_back(del);
 	
 	int pos = 10;
 	std::list<sf::Text*>::iterator it;
@@ -109,17 +110,30 @@ bool Menu::update()
 				else if(itemName == "Delete")
 					del = true;
 				else if (itemName == "Scale")
+				{
 					scale = true;
+					rotate = false;
+				}
 				else if (itemName == "Rotate")
+				{
 					rotate = true;
+					scale = false;
+				}
+				else if (itemName == "Clear")
+				{
+					add = false;
+					del = false;
+					rotate = false;
+					scale = false;
+				}
 				else
 				{
 					if(add && itemName == "Player")
 					{
-						std::cout <<"Player"<<std::endl;
+					/*	std::cout <<"Player"<<std::endl;
 						Sprite * copy = new Player();
 						copy->setPosition(450, 300);
-						spriteman->includeSprite(copy);
+					*/	//spritemanager->includeSprite(copy);
 					}
 					add = false;
 					rotate = false;
@@ -136,12 +150,14 @@ bool Menu::update()
 }//update
 
 
-void Menu::draw(sf::RenderWindow &window)
+void Menu::draw(sf::RenderWindow* window)
 {
+	update();
+	
 	std::list<sf::Text*>::iterator it;
 	for (it = menuList.begin(); it != menuList.end(); ++it)
 	{
-		window.draw((**it));
+		window->draw((**it));
 		
 		std::string itemName = ((**it)).getString();
 		if (itemName == "Add")
@@ -173,14 +189,6 @@ void Menu::draw(sf::RenderWindow &window)
 				((**it)).setColor(sf::Color::White);
 		}
 	}
-}
-
-
-
-
-void Menu::registerSpriteMan(Spriteman * spritey)
-{
-	spriteman = spritey;
 }
 
 
