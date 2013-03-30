@@ -27,19 +27,8 @@ Editstate::Editstate()
 
 void Editstate::update(sf::RenderWindow* window)
 {
-	sf::Event event;
+	distributeInput();
 	
-	while (window->pollEvent(event))
-	{
-		// Espace pressed, close Window, Super+Q : exit
-		if (event.type == sf::Event::Closed ||
-			(event.type == sf::Event::KeyPressed &&
-			 event.key.code == sf::Keyboard::Escape)  )
-		{ window->close(); }
-
-		distributeInput(event);
-		
-	}// poll events ^
 }
 
 
@@ -59,7 +48,7 @@ void Editstate::draw(sf::RenderWindow* win)
 
 
 //state specific input distribution
-void Editstate::distributeInput(sf::Event event)
+void Editstate::distributeInput()
 {
 	//KEYBOARD
 	if(event.type == sf::Event::KeyPressed)

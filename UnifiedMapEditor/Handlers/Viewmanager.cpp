@@ -15,12 +15,7 @@ Viewmanager::Viewmanager()
 	firstExecution = true;
 }
 
-/*
-void Viewmanager::registerWindow (sf::RenderWindow * win)
-{
-	gameView = sf::View(win->getDefaultView());
-}	
-*/
+
 
 bool Viewmanager::update (sf::RenderWindow * win)
 {

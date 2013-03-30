@@ -33,7 +33,7 @@ public:
 	
 private:
 	
-	void distributeInput(sf::Event);
+	void distributeInput();
 
 	Spritemanager* spritemanager;
 	Viewmanager* viewmanager;

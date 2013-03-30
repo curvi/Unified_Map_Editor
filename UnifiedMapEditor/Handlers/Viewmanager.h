@@ -23,7 +23,7 @@ class Viewmanager
 public:
 	
 	Viewmanager();
-	void update (sf::RenderWindow *);
+	bool update (sf::RenderWindow *);
 	sf::Vector2f transformPointToView (sf::Vector2i);
 	
 	bool zoom(sf::Event);
