@@ -25,32 +25,29 @@ Editstate::Editstate()
 
 
 
-void Editstate::update()
+void Editstate::update(sf::RenderWindow* window)
 {
-	if (Input::instance().heldDown(sf::Keyboard::Space) &&
-		Input::instance().heldDown(sf::Mouse::Left, true) )
-	{
-		//Scroll
-	}
-	else if( Input::instance().heldDown(sf::Mouse::Left, true) ) // && Mousemove?
-	{
-		//Move
-	}
-	if (Input::instance().mouseWheel() != 0 )
-	{
-		//Mouse Wheel
-	}
-	if (Input::instance().pressed(sf::Mouse::Left, true))
-	{
-		//Pressed Mouse
-	}
+	sf::Event event;
 	
+	while (window->pollEvent(event))
+	{
+		// Espace pressed, close Window, Super+Q : exit
+		if (event.type == sf::Event::Closed ||
+			(event.type == sf::Event::KeyPressed &&
+			 event.key.code == sf::Keyboard::Escape)  )
+		{ window->close(); }
+
+		distributeInput(event);
+		
+	}// poll events ^
 }
+
 
 
 void Editstate::draw(sf::RenderWindow* win)
 {
-	Input::instance().poll(win);
+	//TODO: replace it by updating func
+	//Input::instance().poll(win);
 	
 	viewmanager->update(win);
 	spritemanager->update(win);
@@ -61,4 +58,46 @@ void Editstate::draw(sf::RenderWindow* win)
 
 
 
+//state specific input distribution
+void Editstate::distributeInput(sf::Event event)
+{
+	//KEYBOARD
+	if(event.type == sf::Event::KeyPressed)
+	{
+		return;
+	}
+	else if (event.type == sf::Event::KeyReleased)
+	{
+		return;
+	}
+	
+	//MOUSE
+	else if (event.type == sf::Event::MouseMoved)
+	{
+		if(viewmanager->moveView(event))
+			return;
+	}
+	else if(event.type == sf::Event::MouseButtonPressed)
+	{
+		if(viewmanager->zoom(event))
+			return;
+		else if(viewmanager->setLock(event))
+			return;
+	}
+	else if (event.type == sf::Event::MouseButtonReleased)
+	{
+		if(viewmanager->setLock(event))
+			return;
+	}
+	else if (event.type == sf::Event::MouseWheelMoved)
+	{
+		if(viewmanager->zoom(event))
+			return;
+	}
+	
+	
+	//unused input is saved and stands ready in the singleton
+	Input::instance().update(event);
+	
+}
 

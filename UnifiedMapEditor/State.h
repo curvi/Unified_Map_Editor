@@ -9,7 +9,6 @@
 #ifndef __UnifiedMapEditor__State__
 #define __UnifiedMapEditor__State__
 
-#include <iostream>
 #include <SFML/Graphics.hpp>
 
 namespace ume {
@@ -19,7 +18,7 @@ class State
 
 public:
 	
-	virtual void update()=0;
+	virtual void update(sf::RenderWindow*)=0;
 	virtual void draw(sf::RenderWindow*)=0;
 	
 };

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		272285B71700337A008A7442 /* Spriteeditor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 272285B51700337A008A7442 /* Spriteeditor.cpp */; };
+		274F454F16FC6CE200799B80 /* Editstate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 274F454D16FC6CE200799B80 /* Editstate.cpp */; };
 		2781D70B16CBCDFC00327BC3 /* testlevel.xml in Resources */ = {isa = PBXBuildFile; fileRef = 2781D70A16CBCDFC00327BC3 /* testlevel.xml */; };
 		2787C5B616CBA3E80070BED2 /* App.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2787C59316CBA3E80070BED2 /* App.cpp */; };
 		2787C5B816CBA3E80070BED2 /* Input.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2787C59816CBA3E80070BED2 /* Input.cpp */; };
@@ -20,14 +22,20 @@
 		2787C5C016CBA3E80070BED2 /* nice_music.ogg in Resources */ = {isa = PBXBuildFile; fileRef = 2787C5A816CBA3E80070BED2 /* nice_music.ogg */; };
 		2787C5C116CBA3E80070BED2 /* player.png in Resources */ = {isa = PBXBuildFile; fileRef = 2787C5A916CBA3E80070BED2 /* player.png */; };
 		2787C5C216CBA3E80070BED2 /* sansation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2787C5AA16CBA3E80070BED2 /* sansation.ttf */; };
-		2787C5C316CBA3E80070BED2 /* Spriteman.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2787C5AB16CBA3E80070BED2 /* Spriteman.cpp */; };
+		2787C5C316CBA3E80070BED2 /* Spritemanager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2787C5AB16CBA3E80070BED2 /* Spritemanager.cpp */; };
 		2787C5C416CBA3E80070BED2 /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2787C5AE16CBA3E80070BED2 /* Player.cpp */; };
 		2787C5C516CBA3E80070BED2 /* Sprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2787C5B016CBA3E80070BED2 /* Sprite.cpp */; };
 		2787C5C616CBA3E80070BED2 /* tinyxml2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2787C5B316CBA3E80070BED2 /* tinyxml2.cpp */; };
+		27E7333B16FE2AFE001D73E9 /* Statemanager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27E7333916FE2AFE001D73E9 /* Statemanager.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		271EA84016B41DA40037D55E /* UnifiedMapEditor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UnifiedMapEditor.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		272285B51700337A008A7442 /* Spriteeditor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Spriteeditor.cpp; sourceTree = "<group>"; };
+		272285B61700337A008A7442 /* Spriteeditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Spriteeditor.h; sourceTree = "<group>"; };
+		274F454D16FC6CE200799B80 /* Editstate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Editstate.cpp; sourceTree = "<group>"; };
+		274F454E16FC6CE200799B80 /* Editstate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Editstate.h; sourceTree = "<group>"; };
+		274F455116FC6D0700799B80 /* State.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = State.h; sourceTree = "<group>"; };
 		2781D70A16CBCDFC00327BC3 /* testlevel.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = testlevel.xml; sourceTree = "<group>"; };
 		2787C59316CBA3E80070BED2 /* App.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = App.cpp; sourceTree = "<group>"; };
 		2787C59416CBA3E80070BED2 /* App.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = App.h; sourceTree = "<group>"; };
@@ -48,8 +56,8 @@
 		2787C5A816CBA3E80070BED2 /* nice_music.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; path = nice_music.ogg; sourceTree = "<group>"; };
 		2787C5A916CBA3E80070BED2 /* player.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player.png; sourceTree = "<group>"; };
 		2787C5AA16CBA3E80070BED2 /* sansation.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sansation.ttf; sourceTree = "<group>"; };
-		2787C5AB16CBA3E80070BED2 /* Spriteman.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Spriteman.cpp; sourceTree = "<group>"; };
-		2787C5AC16CBA3E80070BED2 /* Spriteman.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Spriteman.h; sourceTree = "<group>"; };
+		2787C5AB16CBA3E80070BED2 /* Spritemanager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Spritemanager.cpp; sourceTree = "<group>"; };
+		2787C5AC16CBA3E80070BED2 /* Spritemanager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Spritemanager.h; sourceTree = "<group>"; };
 		2787C5AE16CBA3E80070BED2 /* Player.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
 		2787C5AF16CBA3E80070BED2 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
 		2787C5B016CBA3E80070BED2 /* Sprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Sprite.cpp; sourceTree = "<group>"; };
@@ -57,6 +65,8 @@
 		2787C5B316CBA3E80070BED2 /* tinyxml2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinyxml2.cpp; sourceTree = "<group>"; };
 		2787C5B416CBA3E80070BED2 /* tinyxml2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tinyxml2.h; sourceTree = "<group>"; };
 		2787C5B516CBA3E80070BED2 /* UnifiedMapEditor-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "UnifiedMapEditor-Info.plist"; sourceTree = "<group>"; };
+		27E7333916FE2AFE001D73E9 /* Statemanager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Statemanager.cpp; sourceTree = "<group>"; };
+		27E7333A16FE2AFE001D73E9 /* Statemanager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Statemanager.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,17 +96,28 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		272285B817003382008A7442 /* Editor */ = {
+			isa = PBXGroup;
+			children = (
+				272285B51700337A008A7442 /* Spriteeditor.cpp */,
+				272285B61700337A008A7442 /* Spriteeditor.h */,
+				2787C5A416CBA3E80070BED2 /* Menu.cpp */,
+				2787C5A516CBA3E80070BED2 /* Menu.h */,
+			);
+			name = Editor;
+			sourceTree = "<group>";
+		};
 		2787C59216CBA3E80070BED2 /* UnifiedMapEditor */ = {
 			isa = PBXGroup;
 			children = (
 				2787C5A316CBA3E80070BED2 /* main.cpp */,
 				2787C59316CBA3E80070BED2 /* App.cpp */,
 				2787C59416CBA3E80070BED2 /* App.h */,
+				27E7333816FE2AE9001D73E9 /* States */,
+				272285B817003382008A7442 /* Editor */,
 				2787C59716CBA3E80070BED2 /* Handlers */,
-				2787C5AB16CBA3E80070BED2 /* Spriteman.cpp */,
-				2787C5AC16CBA3E80070BED2 /* Spriteman.h */,
-				2787C5A416CBA3E80070BED2 /* Menu.cpp */,
-				2787C5A516CBA3E80070BED2 /* Menu.h */,
+				2787C5AB16CBA3E80070BED2 /* Spritemanager.cpp */,
+				2787C5AC16CBA3E80070BED2 /* Spritemanager.h */,
 				2787C5A016CBA3E80070BED2 /* Level */,
 				2787C5AD16CBA3E80070BED2 /* Sprites */,
 				2787C5A616CBA3E80070BED2 /* Resources */,
@@ -162,6 +183,18 @@
 			path = tinyxml2;
 			sourceTree = "<group>";
 		};
+		27E7333816FE2AE9001D73E9 /* States */ = {
+			isa = PBXGroup;
+			children = (
+				274F455116FC6D0700799B80 /* State.h */,
+				27E7333916FE2AFE001D73E9 /* Statemanager.cpp */,
+				27E7333A16FE2AFE001D73E9 /* Statemanager.h */,
+				274F454D16FC6CE200799B80 /* Editstate.cpp */,
+				274F454E16FC6CE200799B80 /* Editstate.h */,
+			);
+			name = States;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -189,7 +222,7 @@
 		271EA83616B41DA40037D55E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0450;
+				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "Michael Schwegel";
 			};
 			buildConfigurationList = 271EA83916B41DA40037D55E /* Build configuration list for PBXProject "UnifiedMapEditor" */;
@@ -254,10 +287,13 @@
 				2787C5BC16CBA3E80070BED2 /* Level.cpp in Sources */,
 				2787C5BD16CBA3E80070BED2 /* main.cpp in Sources */,
 				2787C5BE16CBA3E80070BED2 /* Menu.cpp in Sources */,
-				2787C5C316CBA3E80070BED2 /* Spriteman.cpp in Sources */,
+				2787C5C316CBA3E80070BED2 /* Spritemanager.cpp in Sources */,
 				2787C5C416CBA3E80070BED2 /* Player.cpp in Sources */,
 				2787C5C516CBA3E80070BED2 /* Sprite.cpp in Sources */,
 				2787C5C616CBA3E80070BED2 /* tinyxml2.cpp in Sources */,
+				274F454F16FC6CE200799B80 /* Editstate.cpp in Sources */,
+				27E7333B16FE2AFE001D73E9 /* Statemanager.cpp in Sources */,
+				272285B71700337A008A7442 /* Spriteeditor.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,7 +306,10 @@
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					/Library/Frameworks/,
@@ -324,7 +363,10 @@
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -371,6 +413,7 @@
 		271EA85716B41DA40037D55E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = "UnifiedMapEditor/UnifiedMapEditor-Info.plist";
 				PRODUCT_NAME = UnifiedMapEditor;
 			};
@@ -379,6 +422,7 @@
 		271EA85816B41DA40037D55E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = "UnifiedMapEditor/UnifiedMapEditor-Info.plist";
 				PRODUCT_NAME = UnifiedMapEditor;
 			};

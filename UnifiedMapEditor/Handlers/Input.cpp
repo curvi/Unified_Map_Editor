@@ -12,7 +12,7 @@
 
 using namespace ume;
 
-void Input::poll(sf::RenderWindow * window)
+/*void Input::poll(sf::RenderWindow * window)
 {
 	clearUnique();
 	
@@ -33,7 +33,7 @@ void Input::poll(sf::RenderWindow * window)
 		
 	}// Process events ^
 }
-
+*/
 
 
 void Input::update(sf::Event event)

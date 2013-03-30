@@ -23,9 +23,12 @@ class Viewmanager
 public:
 	
 	Viewmanager();
-	bool update (sf::RenderWindow *);
+	void update (sf::RenderWindow *);
 	sf::Vector2f transformPointToView (sf::Vector2i);
 	
+	bool zoom(sf::Event);
+	bool moveView(sf::Event);
+	bool setLock(sf::Event event);
 	
 private:
 	

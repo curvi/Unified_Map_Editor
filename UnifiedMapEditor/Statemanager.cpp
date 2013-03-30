@@ -21,17 +21,17 @@ Statemanager::Statemanager()
 
 void Statemanager::changeState(int)
 {
-	//currentstate ausquetschen, dann löschen
+	//move objects from currentstate, then delete
 }
 
 
-void Statemanager::update()
+void Statemanager::update(sf::RenderWindow* window)
 {
-	currentState->update();
+	currentState->update(window);
 }
 
 
-void Statemanager::draw(sf::RenderWindow* win)
+void Statemanager::draw(sf::RenderWindow* window)
 {
-	currentState->draw(win);
+	currentState->draw(window);
 }

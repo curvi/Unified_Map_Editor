@@ -43,7 +43,7 @@ int App::run()
     {
 		window.clear();
 		
-		statemanager.update();
+		statemanager.update(&window);
 		statemanager.draw(&window);
 
 		window.display();

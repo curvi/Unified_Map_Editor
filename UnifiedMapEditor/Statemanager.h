@@ -9,7 +9,6 @@
 #ifndef __UnifiedMapEditor__Statemanager__
 #define __UnifiedMapEditor__Statemanager__
 
-#include <iostream>
 #include "State.h"
 
 namespace ume {
@@ -20,7 +19,7 @@ public:
 	
 	Statemanager();
 	void changeState(int);
-	void update();
+	void update(sf::RenderWindow*);
 	void draw(sf::RenderWindow*);
 	
 private:

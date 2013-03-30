@@ -62,7 +62,7 @@ bool Viewmanager::update (sf::RenderWindow * win)
 	if(Input::instance().pressed(sf::Mouse::Middle, true))
 	{
 		zoomFactor = 1;
-		gameView.setSize(win->getDefaultView().getSize());
+		gameView.setSize(frameSize.x, frameSize.y);
 	}
 	
 	win->setView(gameView);

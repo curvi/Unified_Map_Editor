@@ -28,11 +28,13 @@ public:
 	
 	//DESTRUCTOR muss MENU sterben
 	Editstate();
-	void update();
+	void update(sf::RenderWindow*);
 	void draw(sf::RenderWindow*);
 	
 private:
 	
+	void distributeInput(sf::Event);
+
 	Spritemanager* spritemanager;
 	Viewmanager* viewmanager;
 	Level* level;
