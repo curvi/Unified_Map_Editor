@@ -19,7 +19,6 @@ class State
 public:
 	
 	virtual void update(sf::RenderWindow*)=0;
-	virtual void draw(sf::RenderWindow*)=0;
 	
 };
 

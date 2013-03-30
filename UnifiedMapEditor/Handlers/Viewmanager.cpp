@@ -11,58 +11,76 @@ using namespace ume;
 Viewmanager::Viewmanager()
 {
 	zoomFactor = 1;
-	inputLock = false;
 	firstExecution = true;
 }
 
 
-
-bool Viewmanager::update (sf::RenderWindow * win)
+bool Viewmanager::update (sf::RenderWindow * window)
 {
 	if (firstExecution)
 	{
-		gameView = sf::View(win->getDefaultView());
+		gameView = sf::View(window->getDefaultView());
 		firstExecution = false;
 	}
 	
-	frameSize = win->getSize();
+	frameSize = window->getSize();
+	bool tookInput = false;
 	
+	if (scroll())
+		tookInput = true;
+	
+	else if(zoom())
+		tookInput = true;
+		
+	window->setView(gameView);
+	
+	return tookInput;
+}
+
+
+
+
+bool Viewmanager::scroll()
+{
 	if(Input::instance().heldDown(sf::Keyboard::Space))
 	{
-		//Beim Drücken erstmal speichern, dann beim halten ziehen
+		//first save offset, then calculate distance
 		if(Input::instance().pressed(sf::Mouse::Left, true))
 		{
 			mouseOffset = Input::instance().getMousePosition();
-			inputLock = true;
+			return true;
 		}
-		else if(Input::instance().heldDown(sf::Mouse::Left, true) && inputLock)
+		else if( Input::instance().heldDown(sf::Mouse::Left, true) )
 		{
 			sf::Vector2i distance = Input::instance().getMousePosition() - mouseOffset;
 			distance.x *= -zoomFactor;
 			distance.y *= -zoomFactor;
 			mouseOffset = Input::instance().getMousePosition();
 			gameView.move(distance.x, distance.y);
+			return true;
 		}
 	}
-	if(Input::instance().released(sf::Mouse::Left, true) ||
-	   Input::instance().released(sf::Keyboard::Space))
-	{	inputLock = false; }
-	
+	return false;
+}
+
+
+
+bool Viewmanager::zoom()
+{
 	if(Input::instance().mouseWheel() != 0)
 	{
 		float currentZoom = 1 - (Input::instance().mouseWheel() * 0.01 );
 		zoomFactor *= currentZoom;
-		gameView.zoom(currentZoom); // 1% zoom per Click of Wheel
+		gameView.zoom(currentZoom); // 1% zoom per click of wheel
+		return true;
 	}
 	if(Input::instance().pressed(sf::Mouse::Middle, true))
 	{
 		zoomFactor = 1;
 		gameView.setSize(frameSize.x, frameSize.y);
+		return true;
 	}
-	
-	win->setView(gameView);
-	
-	return inputLock;
+	return false;
 }
 
 

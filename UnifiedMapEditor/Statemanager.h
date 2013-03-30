@@ -19,8 +19,8 @@ public:
 	
 	Statemanager();
 	void changeState(int);
+
 	void update(sf::RenderWindow*);
-	void draw(sf::RenderWindow*);
 	
 private:
 	

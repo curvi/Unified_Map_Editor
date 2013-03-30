@@ -22,7 +22,7 @@ void Input::poll(sf::RenderWindow * window)
 	sf::Event event;
 	while (window->pollEvent(event))
 	{
-		// Espace pressed, close Window, Super+Q : exit
+		// Escape pressed, close Window, Super+Q : exit
 		if (event.type == sf::Event::Closed ||
 			(event.type == sf::Event::KeyPressed &&
 			 event.key.code == sf::Keyboard::Escape)  )

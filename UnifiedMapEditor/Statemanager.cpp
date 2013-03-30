@@ -29,9 +29,3 @@ void Statemanager::update(sf::RenderWindow* window)
 {
 	currentState->update(window);
 }
-
-
-void Statemanager::draw(sf::RenderWindow* window)
-{
-	currentState->draw(window);
-}

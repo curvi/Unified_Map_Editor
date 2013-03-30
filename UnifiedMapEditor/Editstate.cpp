@@ -25,18 +25,9 @@ Editstate::Editstate()
 
 
 
-void Editstate::update(sf::RenderWindow* window)
+void Editstate::update(sf::RenderWindow* win)
 {
-	distributeInput();
-	
-}
-
-
-
-void Editstate::draw(sf::RenderWindow* win)
-{
-	//TODO: replace it by updating func
-	//Input::instance().poll(win);
+	Input::instance().poll(win);
 	
 	viewmanager->update(win);
 	spritemanager->update(win);
@@ -47,46 +38,9 @@ void Editstate::draw(sf::RenderWindow* win)
 
 
 
-//state specific input distribution
-void Editstate::distributeInput()
-{
-	//KEYBOARD
-	if(event.type == sf::Event::KeyPressed)
-	{
-		return;
-	}
-	else if (event.type == sf::Event::KeyReleased)
-	{
-		return;
-	}
-	
-	//MOUSE
-	else if (event.type == sf::Event::MouseMoved)
-	{
-		if(viewmanager->moveView(event))
-			return;
-	}
-	else if(event.type == sf::Event::MouseButtonPressed)
-	{
-		if(viewmanager->zoom(event))
-			return;
-		else if(viewmanager->setLock(event))
-			return;
-	}
-	else if (event.type == sf::Event::MouseButtonReleased)
-	{
-		if(viewmanager->setLock(event))
-			return;
-	}
-	else if (event.type == sf::Event::MouseWheelMoved)
-	{
-		if(viewmanager->zoom(event))
-			return;
-	}
-	
-	
-	//unused input is saved and stands ready in the singleton
-	Input::instance().update(event);
-	
-}
+
+
+
+
+
 

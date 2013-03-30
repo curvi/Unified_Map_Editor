@@ -9,10 +9,7 @@
 #ifndef __GutenMapEdit__Viewmanager__
 #define __GutenMapEdit__Viewmanager__
 
-#include <iostream>
-
 #include <SFML/Graphics.hpp>
-
 #include "Input.h"
 
 namespace ume {
@@ -23,21 +20,22 @@ class Viewmanager
 public:
 	
 	Viewmanager();
+	
 	bool update (sf::RenderWindow *);
+	
 	sf::Vector2f transformPointToView (sf::Vector2i);
 	
-	bool zoom(sf::Event);
-	bool moveView(sf::Event);
-	bool setLock(sf::Event event);
 	
 private:
+	
+	bool scroll();
+	bool zoom();
 	
 	sf::View gameView;
 	sf::Vector2u frameSize;
 	sf::Vector2i mouseOffset;
 	float zoomFactor;
 	
-	bool inputLock;
 	bool firstExecution;
 	
 };

@@ -26,15 +26,11 @@ class Editstate : public State
 {
 public:
 	
-	//DESTRUCTOR muss MENU sterben
 	Editstate();
 	void update(sf::RenderWindow*);
-	void draw(sf::RenderWindow*);
 	
 private:
 	
-	void distributeInput();
-
 	Spritemanager* spritemanager;
 	Viewmanager* viewmanager;
 	Level* level;
