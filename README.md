@@ -7,4 +7,4 @@ Using SFML and TinyXML.
 
 Ships with XCode Project.
 
-Beta Phase. Basic features allready implemented, Import and Export of Maps comming shortly.
+Beta Phase. Basic features allready implemented, Import and Export of Maps not implemented.
